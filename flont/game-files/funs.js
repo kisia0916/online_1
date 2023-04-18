@@ -213,5 +213,5 @@ const reverse_piece = (x,y)=>{
     sub_map[y][x] = turn.n
     stage.map = sub_map
     send_stage()
-    turn_change()
+    // turn_change()
 }

@@ -189,6 +189,16 @@ const setPiece = ()=>{
                 }
             }
         }
-        checkPutSpace()
+        // checkPutSpace()
     }
+}
+const reset_stage_next_turn = ()=>{
+    for(let i = 0;stage_height>i;i++){
+        for(let s = 0;stage_width>s;s++){
+            if(stage.map[i][s] == 3){
+                stage.map[i][s] = 0
+            }
+        }
+    }
+    
 }

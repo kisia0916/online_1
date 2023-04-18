@@ -13,6 +13,7 @@ let mx;
 let my_turn;
 let now_turn;
 let turn = {n:0}
+let my_color;
 
 const game_start  = ()=>{
     canvas = document.querySelector(".canvas")
@@ -60,8 +61,9 @@ const game_start  = ()=>{
     })
 
     // set_stage()
-
-    checkPutSpace()
+    if(my_color == "black"){
+        checkPutSpace()
+    }
 
 
     console.log("test")

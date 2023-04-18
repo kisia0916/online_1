@@ -5,6 +5,7 @@ const game_dom = ()=>{
         <span>p2:${p2}</span><br/>
         <span>black:${black}</span><br/>
         <span>white:${white}</span><br/>
+        <span>yourColor:${my_color}</span>
         <canvas width="600" height="600" class="canvas"></canvas>
 
 
