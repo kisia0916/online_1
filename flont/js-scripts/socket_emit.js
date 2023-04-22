@@ -7,6 +7,6 @@ const start_matching = ()=>{
 const send_stage = ()=>{
     console.log("00000000000000000000")
     if(user_state == 2){
-        Socket.emit("send_stage",{stage:stage.map,roomId:roomId,send_user:userId,now_turn:now_turn})
+        Socket.emit("send_stage",{stage:stage.map,roomId:roomId,send_user:userId,now_turn:now_turn,pass_counter:pass_counter})
     }
 }

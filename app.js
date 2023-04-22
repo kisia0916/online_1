@@ -75,21 +75,24 @@ io.on("connection",(socket)=>{
                 let push_data = {
                     roomId:roomId,
                     stage:[
-                        [0,0,0,1,0,0,0,0],
-                        [0,0,1,2,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,2,1,0,0,0],
-                        [0,0,0,1,2,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
-                        [0,0,0,0,0,0,0,0],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,1,2,2,2,2],
+                        [1,2,1,2,0,2,2,2],
+
+
 
                     ],
                     p1:p1,
                     p2:p2,
                     now_turn:1,
                     black:black,
-                    white:white
+                    white:white,
+                    pass_counter:0
                 }
                 if(co1 == 0){
                     black = p1
@@ -102,8 +105,8 @@ io.on("connection",(socket)=>{
                     }else{
                         my_color = 2
                     }
-                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn})
-                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn})
+                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
+                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
                 }else if(co1 == 1){
                     black = p2
                     white = p1
@@ -114,8 +117,8 @@ io.on("connection",(socket)=>{
                     }else{
                         my_color = 1
                     }
-                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn})
-                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn})
+                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
+                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
 
                 }
                 
@@ -134,43 +137,57 @@ io.on("connection",(socket)=>{
         // console.log(players)
     })
     socket.on("send_stage",(data)=>{
-        let room;
-        let change_turn;
-        for (let i =0;games.length>i;i++){
-            if(games[i].roomId == data.roomId){
-                room = games[i]
-                break
-            }
-        }
         try{
-            room.stage = data.stage
+            let room;
+            let change_turn;
+            for (let i =0;games.length>i;i++){
+                if(games[i].roomId == data.roomId){
+                    room = games[i]
+                    break
+                }
+            }
+            try{
+                room.stage = data.stage
+                room.pass_counter = data.pass_counter
+            }catch{
+                
+            }
+            // console.log(";;;;;")
+            // console.log(room)
+            let next_user = ""
+            if(data.now_turn == 1){
+                change_turn = 2
+                next_user = room.white
+            }else{
+                change_turn = 1
+                next_user = room.black
+
+            }
+            // console.log(room.black)
+            // console.log(room.white)
+
+            io.to(room.roomId).emit("get_new_stage",{stage:room.stage,now_turn:change_turn})
+            console.log(next_user)
+            io.to(next_user).emit("mess",next_user)
+            console.log(room)
         }catch{
-            
+            console.log("error")
         }
-        // console.log(";;;;;")
-        // console.log(room)
-        let next_user = ""
-        if(data.now_turn == 1){
-            change_turn = 2
-            next_user = room.white
-        }else{
-            change_turn = 1
-            next_user = room.black
-
-        }
-        // console.log(room.black)
-        // console.log(room.white)
-
-        io.to(room.roomId).emit("get_new_stage",{stage:room.stage,now_turn:change_turn})
-        console.log(next_user)
-        io.to(next_user).emit("mess",next_user)
-        console.log(room)
     })
     socket.on("end_game",(data)=>{
         joinRoomList[0].room = ""
         socket.leave(data.room)
+        console.log("!o")
+        io.to(data.room).emit("end_room","end")
         // console.log(joinRoomList)
     })
+    socket.on("delete_cons",(data)=>{
+        let room_index = games.indexOf(data.room)
+        games.splice(room_index,1)
+        console.log("oooo")
+        console.log(games)
+    })
+
     socket.on("disconnect",()=>{
         players.splice(players.indexOf(userId),1)
         if(wait_match.indexOf(userId) != -1){

@@ -14,7 +14,7 @@ let my_turn;
 let now_turn;
 let turn = {n:0}
 let my_color;
-
+let pass_counter;
 const game_start  = ()=>{
     canvas = document.querySelector(".canvas")
     ctx = canvas.getContext("2d")
