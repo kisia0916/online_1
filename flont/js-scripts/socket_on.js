@@ -1,5 +1,6 @@
 
 
+
 Socket.on("set_data",(data)=>{
     userId = data.userId
 })
@@ -13,6 +14,7 @@ Socket.on("start_game",(data)=>{
     pass_counter = data.pass_counter
     console.log(roomId,p1,p2,black,white)
     user_state = 2
+    Socket.emit("join_match",{roomId:roomId})
     my_turn = data.my_color
     if(data.black == userId){
         console.log("black")
@@ -174,6 +176,17 @@ Socket.on("end_room",(data)=>{
     // alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
     user_state = 0
     // move("")
+})
+Socket.on("send_private_id",(data)=>{
+    console.log("ooooo")
+    console.log(data.roomId)
+    roomId = data.roomId
+    let id_space = document.getElementById("room_ID")
+    id_space.value = `${roomId}`
+})
+Socket.on("no_room",(data)=>{
+    let mess = document.querySelector(".room_message")
+    mess.textContent = "roomがありません"
 })
 Socket.on("koko",(data)=>{
     console.log(data)
