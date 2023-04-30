@@ -5,10 +5,12 @@ body{
     background-color: rgb(109, 154, 109);
     background-color: rgb(97, 149, 97);
     background-color: rgb(88, 153, 88);
-    background: linear-gradient(150deg, rgb(88, 153, 88), rgb(88, 153, 135),rgb(88, 142, 153));
+    /* background: linear-gradient(150deg, rgb(88, 153, 88), rgb(88, 153, 135),rgb(88, 142, 153)); */
+
+    background: linear-gradient(150deg, rgb(73, 152, 73), rgb(88, 153, 135),rgb(88, 142, 153));
 
 
-
+    /* background: linear-gradient(150deg, rgb(6, 221, 6), rgb(88, 153, 135),rgb(88, 142, 153)); */
 
     padding-left: 0;
     margin-left: 0;
@@ -52,6 +54,10 @@ body{
 }
 .title_white{
     color:rgb(221, 238, 224);
+}
+.menu{
+    color:rgb(56, 56, 56);
+    cursor: pointer;
 }
 
 @keyframes button_ani{
@@ -111,9 +117,9 @@ body{
         
     }
     .button1{
-        border-radius: 0px 20px 20px 0px;
+        border-radius: 0px 27px 27px 0px;
         background-color: rgb(56, 56, 56);;
-        margin-bottom: 50px;
+        margin-bottom: 48px;
         left: 0;
         border-top:solid 1px rgb(85, 85, 85);
         border-bottom:solid 1px rgb(85, 85, 85);
@@ -123,9 +129,9 @@ body{
     }
     
     .button2{
-        border-radius: 0px 20px 20px 0px;
+        border-radius: 0px 27px 27px 0px;
         background-color: rgb(221, 238, 224);;
-        margin-bottom: 50px;
+        margin-bottom: 48px;
         display: flex;
         justify-content: space-between;
         cursor: pointer;
@@ -161,13 +167,13 @@ body{
     }
     .button1{
         width: 86%;
-        height: 60px;
+        height: 59px;
 
     }
 
     .button2{
         width: 86%;
-        height: 60px;
+        height: 59px;
 
     }
     .human_num{

@@ -45,30 +45,31 @@
         right: 60px;
     }
     .mode_buttons{
-        margin-top: 3%;
+        margin-top: 4%;
         margin-left: 0;
         padding-left: 0;
-        
+
     }
     .button1{
         margin: auto;
 
-        border-radius: 20px;
+        border-radius: 30px;
         background-color: rgb(56, 56, 56);;
         margin-bottom: 55px;
 
         border-top:solid 1px rgb(85, 85, 85);
-        
+        min-width: 600px;
     
     
     }
     
     .button2{
         margin: auto;
-        border-radius: 20px;
+        border-radius: 30px;
         background-color: rgb(221, 238, 224);;
         margin-bottom: 55px;
         display: flex;
+        min-width: 600px;
 
     }
     .button1_text{
@@ -91,14 +92,14 @@
 
     }
     .button1{
-        width: 40%;
+        width: 35%;
         height: 64px;
         display: flex;
         cursor: pointer;
     }
 
     .button2{
-        width: 40%;
+        width: 35%;
         height: 64px;
         display: flex;
         cursor: pointer;

@@ -4,7 +4,7 @@ body{
 }
 
 .canvas{
-    background-color: green;
+    /* background-color: green;
     border-radius: 10px;
     display: flex;
     position: absolute;
@@ -12,7 +12,7 @@ body{
     right: 0;
     bottom: 0;
     left: 0;
-    margin: auto;
+    margin: auto; */
 }
 @media (max-width:630px){
     .canvas{

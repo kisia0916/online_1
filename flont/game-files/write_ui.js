@@ -16,14 +16,17 @@ const writePiece = ()=>{
             if(stage.map[s][i] == 2){
                 ctx.beginPath () ;
                 ctx.arc( i*stage_space+37.5, s*stage_space+37.5, 36, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
-                ctx.fillStyle = "white" ;
+
+       
+        ctx.fillStyle = "rgb(221, 238, 224)" ;
                 // 塗りつぶしを実行
                 ctx.fill() ;
             }
             if(stage.map[s][i] == 1){
                 ctx.beginPath () ;
                 ctx.arc( i*stage_space+37.5, s*stage_space+37.5, 36, 0 * Math.PI / 180, 360 * Math.PI / 180, false ) ;
-                ctx.fillStyle = "black" ;
+
+        ctx.fillStyle = "rgb(52, 51, 51)" ;
                 // 塗りつぶしを実行
                 ctx.fill() ;
 
