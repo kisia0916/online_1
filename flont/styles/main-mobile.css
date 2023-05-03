@@ -29,6 +29,7 @@ body{
 }
 .main_space2{
     position: relative;
+
 }
 .koma_1{
     width: 60px;
@@ -111,7 +112,7 @@ body{
 
     }
     .mode_buttons{
-        margin-top: 10%;
+        /* margin-top: 13%; */
         margin-left: 0;
         padding-left: 0;
         
@@ -119,18 +120,20 @@ body{
     .button1{
         border-radius: 0px 27px 27px 0px;
         background-color: rgb(56, 56, 56);;
+        background-color: rgba(56, 56, 56, 0.938);;
+
         margin-bottom: 48px;
         left: 0;
-        border-top:solid 1px rgb(85, 85, 85);
+        /* border-top:solid 1px rgb(85, 85, 85);
         border-bottom:solid 1px rgb(85, 85, 85);
-        border-right:solid 1px rgb(85, 85, 85);
+        border-right:solid 1px rgb(85, 85, 85); */
         cursor: pointer;
     
     }
     
     .button2{
         border-radius: 0px 27px 27px 0px;
-        background-color: rgb(221, 238, 224);;
+        background-color: rgba(221, 238, 224,0.938);;
         margin-bottom: 48px;
         display: flex;
         justify-content: space-between;
@@ -200,7 +203,24 @@ body{
     .title_text{
         margin-top: 4%;
     }
-
+    .mode_buttons{
+        margin-top: 8%;
+        margin-left: 0;
+        padding-left: 0;
+        
+    }
     
 }
 
+@media (min-height:680px){
+    .title_text{
+        margin-top: 12%;
+    }
+    .mode_buttons{
+        margin-top: 14%;
+        margin-left: 0;
+        padding-left: 0;
+        
+    }
+    
+}

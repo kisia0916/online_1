@@ -18,3 +18,11 @@ const write_join_private_page = ()=>{
     let space = document.querySelector(".main_space")
     space.innerHTML = inputRoom_dom()
 }
+const write_wait_publick_match = ()=>{
+    let space = document.querySelector(".main_space")
+    space.innerHTML = wait_online_dom()
+}
+const write_offline_mode = ()=>{
+    let space = document.querySelector(".main_space")
+    space.innerHTML = offline_dom()
+}

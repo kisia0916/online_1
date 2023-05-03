@@ -1,4 +1,4 @@
-const inputRoom_dom = ()=>{
+const wait_online_dom = ()=>{
     let html = `
     <div class="move_mist" id = "move_mist">
         
@@ -10,25 +10,18 @@ const inputRoom_dom = ()=>{
             </span>
     </div>
     <div class="join_room_title">
-        <span class="join_room_title_text">Join Room</span>
+        <span class="join_room_title_text">Play Online</span>
     </div>
 </div>
 <div class="mkroom_main">
-    <div class="mkroom_center2">
-        <div class="Host_name2">
-            <div class="Host_name_title_warpp">
-                <span class="join_room_text">Room ID</span>
-            </div>
-            <input type="text" class="host_name_input">
+    <div class="mkroom_center4">
+
+
+        <div class="loader">Loading...</div>
+        <div class="private_wait_warpp">
+            <span class="private_wait_text">Waiting other player....</span>
         </div>
 
-        
-
-        <div class="start_button">
-            <span class="join_text">Join</span>
-        </div>
-    </div>
-</div>
 <div class="mkroom_bottom">
     <span class="rogo_text">
         <!-- ©onlinereversi -->
@@ -53,6 +46,7 @@ const inputRoom_dom = ()=>{
     <span class="rogo_white">R</span>
     <span class="rogo_black">S</span>
     <span class="rogo_white">I</span>
+</div>
 </div>
     `
     return html

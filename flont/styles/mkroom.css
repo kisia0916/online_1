@@ -1,0 +1,281 @@
+html{
+    
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+    height: 100vh;
+    background: linear-gradient(150deg, rgb(111, 183, 111), rgb(88, 153, 135),rgb(88, 142, 153));
+    background: linear-gradient(150deg,rgb(88, 142, 153), rgb(88, 153, 135),rgb(88, 142, 153));
+    background: linear-gradient(150deg,rgb(102, 180, 104), rgb(88, 153, 135),rgb(88, 142, 153));
+
+}
+.main_space{
+    width: 100%;
+    height: 100vh;
+
+
+}
+.mkroom_top{
+    /* background-color: red; */
+    width: 100%;
+    height: 70px;
+    display:flex;
+    margin-bottom: 50px;
+    padding-top: 3px;
+
+}
+.mkroom_main{
+    /* background-color: blue; */
+    width: 100%;
+    height:calc(100% - 140px);
+    min-height: 330px;
+    /* position: relative; */
+}
+
+    .mkroom_center3{
+        /* width: 300px;
+        height: 300px; */
+        width: 100%;
+        /* height: 80%; */
+        /* display: flex; */
+        margin: auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform : translateY(-50%);
+        transform : translateY(-62%);
+        /* background-color: antiquewhite; */
+
+    }
+
+.mkroom_title{
+    color:rgb(52, 51, 51);
+    margin: auto;
+    font-size: 150%;
+    margin-top: 18px;
+
+    color: rgb(221, 238, 224);;
+}
+@media (min-width:630px){
+    .Host_name{
+        width: 480px;
+        height: 110px;
+    }
+    .host_name_input{
+        width: 60%;
+        /* display: flex; */
+        /* top: 10px; */
+        height: 35px;
+    }
+    .Turn_time{
+        width: 480px;
+        height: 110px;
+    }
+    .Host_color{
+        width: 480px;
+        height: 110px;
+    }
+}
+@media (max-width:630px){
+    .Host_name{
+        width: 80%;
+        height: 100px;
+
+    }
+    .Turn_time{
+        width: 80%;
+        height: 100px;
+    }
+    .Host_color{
+        width: 80%;
+        height: 100px;  
+    }
+    .host_name_input{
+        width: 70%;
+        height: 30px;
+        margin-top: 20px;
+
+    }
+}
+.mkroom_back{
+    display: flex;
+    align-items: center;
+    /* position: absolute; */
+    /* top: 37px; */
+    /* margin-left:30%; */
+    /* position: relative; */
+    color:rgb(52, 51, 51);
+/* 
+    -webkit-transform : translateY(-50%);
+    transform : translateY(-10%); */
+    color: rgb(221, 238, 224);;
+    -webkit-transform : translateY(-50%);
+    transform : translateY(27%);
+    margin: auto;
+    margin-left: 28%;
+    
+}
+.Host_name{
+    background-color:rgba(186, 190, 188, 0.167);
+    margin: auto;
+
+    border-radius: 13px;
+    border: solid 1px rgb(179, 236, 187);;;
+    /* display: flex; */
+    color: rgb(52, 51, 51);;
+    color: rgb(221, 238, 224);;
+
+}
+.Host_name_title_warpp{
+    display: flex;
+}
+.Turn_time{
+    background-color:rgba(186, 190, 188, 0.167);
+
+
+
+    /* width: 80%;
+    height: 100px; */
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 13px;
+    border: solid 1px rgb(160, 179, 163);;
+    border: solid 1px rgb(179, 236, 187);
+
+    color: rgb(52, 51, 51);;
+    color: rgb(221, 238, 224);;
+}
+.Host_color{
+    background-color:rgba(186, 190, 188, 0.167);
+
+
+
+    /* width: 80%;
+    height: 100px; */
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 13px;
+    border: solid 1px rgb(160, 179, 163);;
+    border: solid 1px rgb(179, 236, 187);
+    color: rgb(52, 51, 51);;
+    color: rgb(221, 238, 224);;
+
+    
+}
+.start_button{
+    /* background-color: blue; */
+    margin: auto;
+    width: 130px;
+    height: 45px;
+    border-radius: 25px;
+    /* margin-top: 100px; */
+    border: solid 1px rgb(189, 207, 192);;;
+    border: solid 1px rgb(179, 236, 187);
+
+    margin-top: 40px;
+    display: flex;
+    cursor: pointer;
+}
+.start_button:hover{
+    background-color: rgba(176, 192, 199, 0.504);
+}
+.start_text{
+    display: flex;
+    font-size: 160%;
+    margin: auto;
+    color:rgb(52, 51, 51);
+    color: rgb(221, 238, 224);;
+
+}
+.Host_name{
+    /* display: flex */
+}
+.host_name_text{
+
+    font-size: 140%;
+    display: flex;
+    margin: auto;
+    margin-top: 9px;
+    
+}
+.host_name_input{
+    /* width: 70%; */
+    /* height: 30px; */
+    display: flex;
+    margin: auto;
+    border-radius: 20px;
+    border: none;
+    margin-top: 4px;
+    background-color: rgb(221, 238, 224);
+}
+.time_select{
+    display: flex;
+    margin: auto;
+    margin-right: 3px;
+    border: none;
+    border-radius: 2px;
+    width: 40px;
+    width: 45px;
+    height: 25px;
+    background-color: rgb(235, 255, 239);
+
+}
+.time_select2{
+    display: flex;
+    margin: auto;
+    margin-left: 3px;
+    border: none;
+    border-radius: 2px;
+    width: 45px;
+    height: 25px;
+    background-color: rgb(235, 255, 239);
+
+
+}
+.time_select_warpp{
+    display: flex;
+    margin-top:8px;
+}
+.color_select3{
+    display: flex;
+    margin: auto;
+    margin-left: 3px;
+    border: none;
+    border-radius: 2px;
+    width: 70px;
+    height: 25px;
+    background-color: rgb(235, 255, 239);
+
+}
+.color_select_warpp{
+    display: flex;
+    margin-top: 8px;
+    /* margin: auto; */
+}
+.color_select_color{
+    margin: auto;
+    margin-right: 3px;
+
+}
+.rogo_text{
+    color: aliceblue;
+    /* bottom: 30px; */
+    display: flex;
+    margin-bottom: 10px;
+}
+.bottom_rogo{
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    /* bottom: 0px; */
+    margin-left: 10px;
+}
+.rogo_black{
+    font-size: 120%;
+
+    color: rgb(52, 51, 51);
+}
+.rogo_white{
+    color: rgb(221, 238, 224);;
+    font-size: 120%;
+}

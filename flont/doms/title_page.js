@@ -1,5 +1,8 @@
 const title_dom = ()=>{
     let html = `
+    <div class="move_mist" id = "move_mist">
+        
+    </div>
     <div class="main_warpp">
 
         <div class="main_space2">
@@ -31,7 +34,7 @@ const title_dom = ()=>{
 
             </div>
             <div class="mode_buttons">
-                <div class="button1" onclick="">
+                <div class="button1" onclick="offline_page()">
                     <span class="button1_text">PlayOffline</span>
                 </div>
 

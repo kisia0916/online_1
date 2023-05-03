@@ -9,9 +9,11 @@ body{
 
     width: 100%;
     height: 100vh;
-    background: linear-gradient(150deg, rgb(88, 153, 88), rgb(88, 153, 135),rgb(88, 142, 153)); 
-    background: linear-gradient(150deg, rgb(105, 170, 105), rgb(88, 153, 135),rgb(88, 142, 153));
-    background: linear-gradient(150deg,rgb(102, 180, 104), rgb(88, 153, 135),rgb(88, 142, 153));
+    /* background: linear-gradient(150deg, rgb(88, 153, 88), rgb(88, 153, 135),rgb(88, 142, 153)); */
+    /* background: linear-gradient(150deg, #43ce8f,#187e9d); */
+    background: linear-gradient(150deg, #3c9d71,#2e95a7);
+
+    background: linear-gradient(150deg, #3b966d,#2e95a7);
 
 
 }
@@ -22,13 +24,17 @@ body{
     aspect-ratio: 600 / 600;
     /* background-color: red; */
     /* display: flex; */
-    position: absolute;
-    top: 0;
+    /* position: absolute; */
+    /* top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    margin: auto; */
+    position: relative;
+    top: 50%;
+    -webkit-transform : translateY(-50%);
+    transform : translateY(-68%);
     margin: auto;
-
     
 }
 .canvas{
@@ -83,7 +89,7 @@ body{
         height: 30px;
         border-radius: 50%;
         background-color: rgb(52, 51, 51);
-        margin-top: 4.5px;
+        margin-top: 4.2px;
         margin-left: 4px;
     }
     .white_block{
@@ -92,23 +98,20 @@ body{
         border-radius: 50%;
         background-color: rgb(221, 238, 224);
         
-        margin-top: 4.5px;
+        margin-top: 4.2px;
         margin-left: 4px;
     }
     .block_num{
         font-size: 140%;
-        margin-top: 3px;
-        margin-left: 4px;
+        margin: auto;
+        margin-left: 7px;
         color: rgb(52, 51, 51);
-        line-height: 33px;
     }
     .block_num2{
         font-size: 140%;
-        margin-top: 3px;
-        margin-left: 4px;
+        margin: auto;
+        margin-left: 7px;
         color: rgb(221, 238, 224);
-        line-height: 33px;
-
     }
 }
 @media (min-width:630px){
@@ -137,7 +140,7 @@ body{
         margin-top: 10px;
         color: rgb(56, 56, 56);
         color:rgb(221, 238, 224);
-        line-height: 50px;
+
     }
 }
 @media (max-width:630px){
@@ -147,7 +150,7 @@ body{
         border-radius: 30px;
         border: solid 1px white;
         margin: auto;
-
+        display: flex;
 
 
         /* background-color: rgba(255, 255, 255, 0.1);
@@ -162,11 +165,80 @@ body{
     }
     .turn_timer_text{
         font-size: 180%;
-        margin-left: 31px;
-        margin-top: 10px;
+        /* position: relative; */
+
+
+        margin: auto;
+
+        margin: auto;
         color: rgb(56, 56, 56);
         color:rgb(221, 238, 224);
-        line-height: 50px;
 
     }
+    .test{
+        width: 35%;
+    }
+    .black_user{
+        width: 100%;
+        height: 30px;
+        border: solid 1px white;
+        border-radius: 20px;
+        margin-top: 10px;
+        margin-left:10px ;
+        display: flex;
+
+    }
+    .white_user{
+        width: 100%;
+        height: 30px;
+        border: solid 1px white;
+        border-radius: 20px;
+        margin-top: 10px;
+        margin-left:10px ;
+        display: flex;
+        overflow: hidden;
+    }
+    .black_user_name{
+        color: rgb(56, 56, 56);
+        margin: auto;
+        margin-left: 4px;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        white-space: nowrap;
+    }
+    .white_user_name{
+        color:rgb(221, 238, 224);
+        margin: auto;
+        margin-left: 4px;
+        /* width: 74%; */
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        white-space: nowrap;
+    }
+    .user_ls{
+        /* display: flex;
+        margin: auto;
+        margin-left:4px ; */
+        display: flex;
+    }
+    .black_user_black{
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        background-color: rgb(56, 56, 56);
+        margin: auto;
+        margin-left: 4px;
+        
+    }
+    .whtie_user_white{
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        background-color: rgb(221, 238, 224);
+        margin: auto;
+        margin-left: 4px;
+        /* margin-right: 0; */
+    }
+
 }

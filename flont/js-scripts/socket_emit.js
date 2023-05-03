@@ -4,6 +4,7 @@
 const start_matching = ()=>{
     if(user_state != 1){
         user_state = 1
+        move("waitmatch")
         Socket.emit("join_matching",{userId:userId})
     }
 }
@@ -21,6 +22,10 @@ const mk_room = ()=>{
 const join_page = ()=>{
     user_state = 4
     move("join")
+}
+const offline_page = ()=>{
+    user_state = 5
+    move("offline")
 }
 
 const join_room = ()=>{

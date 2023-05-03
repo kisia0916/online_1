@@ -1,0 +1,182 @@
+html{
+    
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+    height: 100vh;
+    background: linear-gradient(150deg, rgb(88, 153, 88), rgb(88, 153, 135),rgb(88, 142, 153));
+    background: linear-gradient(150deg, rgb(105, 170, 105), rgb(88, 153, 135),rgb(88, 142, 153));
+    background: linear-gradient(150deg,rgb(102, 180, 104), rgb(88, 153, 135),rgb(88, 142, 153));
+
+}
+.main_space{
+    width: 100%;
+    height: 100vh;
+
+
+}
+.mkroom_top{
+    /* background-color: red; */
+    width: 100%;
+    height: 70px;
+    display:flex;
+    margin-bottom: 50px;
+    padding-top: 3px;
+
+}
+.mkroom_main{
+    /* background-color: blue; */
+    width: 100%;
+    height:calc(100% - 140px);
+    min-height: 330px;
+    /* position: relative; */
+}
+
+    .mkroom_center2{
+        /* width: 300px;
+        height: 300px; */
+        width: 100%;
+        /* height: 80%; */
+        /* display: flex; */
+        margin: auto;
+        position: relative;
+        top: 50%;
+        -webkit-transform : translateY(-50%);
+        transform : translateY(-70%);
+        /* background-color: antiquewhite; */
+
+    }
+
+.join_room_title{
+    color:rgb(221, 238, 224);;
+    margin: auto;
+    font-size: 150%;
+    margin-top: 18px;
+
+
+}
+.join_room_back{
+    display: flex;
+    align-items: center;
+    position: absolute;
+
+
+
+    -webkit-transform : translateY(-50%);
+
+    transform : translateY(-50%);
+    color:rgb(221, 238, 224);;
+    
+}
+@media (min-width:630px){
+    .Host_name2{
+        width: 480px;
+        height: 110px;
+    }
+    .host_name_input{
+        width: 50%;
+    }
+    .join_room_back{
+        top: 41px;
+        /* align-items: center; */
+        margin-left: 20%;
+    }
+    
+}
+@media (max-width:630px){
+    .Host_name2{
+    width: 80%;
+    height: 100px;
+    }
+    .host_name_input{
+    width: 70%;
+
+    }
+    .join_room_back{
+        top: 41px;
+        margin-left:20px;
+    }
+}
+.Host_name2{
+    background-color:rgba(186, 190, 188, 0.167);
+    /* width: 80%;
+    height: 100px; */
+    margin: auto;
+    border-radius: 13px;
+    border: solid 1px rgb(179, 236, 187);;;
+    /* display: flex; */
+    color: rgb(221, 238, 224);;
+
+}
+.Host_name_title_warpp{
+    display: flex;
+}
+
+
+.start_button{
+    /* background-color: blue; */
+    margin: auto;
+    width: 130px;
+    height: 45px;
+    border-radius: 25px;
+    /* margin-top: 100px; */
+    border: solid 1px rgb(189, 207, 192);;;
+    border: solid 1px rgb(179, 236, 187);
+
+    margin-top: 40px;
+    display: flex;
+}
+.join_text{
+    display: flex;
+    font-size: 160%;
+    margin: auto;
+    color:rgb(221, 238, 224);;
+
+
+}
+.Host_name{
+    /* display: flex */
+}
+.join_room_text{
+
+    font-size: 140%;
+    display: flex;
+    margin: auto;
+    margin-top: 9px;
+    
+}
+.host_name_input{
+    /* width: 70%; */
+    height: 30px;
+    display: flex;
+    margin: auto;
+    border-radius: 20px;
+    border: none;
+    margin-top: 3px;
+}
+
+
+.rogo_text{
+    color: aliceblue;
+    /* bottom: 30px; */
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.bottom_rogo{
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    /* bottom: 0px; */
+    margin-left: 10px;
+}
+.rogo_black{
+    font-size: 120%;
+
+    color: rgb(52, 51, 51);
+}
+.rogo_white{
+    color: rgb(221, 238, 224);;
+    font-size: 120%;
+}

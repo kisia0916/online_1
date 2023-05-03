@@ -6,6 +6,7 @@ const io = require("socket.io")(server)
 const body_pase = require("body-parser")
 const path = require("path")
 const fs = require("fs")
+const pages = require("./router/page_routers")
 const ejs = require("ejs")
 const uuid = require('node-uuid');
 const { resolveModuleName } = require("typescript")
@@ -19,6 +20,7 @@ app.use(body_pase.json());//////////////////////////////   ここ重要
 app.use(body_pase.urlencoded({ extended: true }));//////
 app.use(express.static(path.join(__dirname, "js")));
 app.use("/flont", express.static("flont"))
+
 app.get("/",(req,res)=>{
     let html = ejs.render(index_page,{
 
@@ -28,30 +30,11 @@ app.get("/",(req,res)=>{
     res.end()
 })
 
-app.get("/game",(req,res)=>{
-    let html = ejs.render(index_page,{
 
-    })
-    res.writeHead(200,{"Content-Type":"text/html"})
-    res.write(html)
-    res.end()
-})
-app.get("/mkroom",(req,res)=>{
-    let html = ejs.render(index_page,{
+app.use("/",pages)
 
-    })
-    res.writeHead(200,{"Content-Type":"text/html"})
-    res.write(html)
-    res.end()
-})
-app.get("/join",(req,res)=>{
-    let html = ejs.render(index_page,{
 
-    })
-    res.writeHead(200,{"Content-Type":"text/html"})
-    res.write(html)
-    res.end()
-})
+
 let wait_match = []
 let games = []
 let players = []
