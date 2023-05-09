@@ -26,3 +26,11 @@ const write_offline_mode = ()=>{
     let space = document.querySelector(".main_space")
     space.innerHTML = offline_dom()
 }
+const write_wait_private = ()=>{
+    let space = document.querySelector(".main_space")
+    space.innerHTML = wait_private_dom()
+}
+const write_url_join = (id)=>{
+    let space = document.querySelector(".main_space")
+    space.innerHTML = url_join_dom(id)
+}

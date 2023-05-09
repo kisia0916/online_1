@@ -120,6 +120,7 @@ body{
         height: 50px;
         border-radius: 30px;
         border: solid 1px white;
+
         margin: auto;
 
 
@@ -139,7 +140,7 @@ body{
         margin-left: 31px;
         margin-top: 10px;
         color: rgb(56, 56, 56);
-        color:rgb(221, 238, 224);
+
 
     }
 }
@@ -149,6 +150,8 @@ body{
         height: 50px;
         border-radius: 30px;
         border: solid 1px white;
+
+
         margin: auto;
         display: flex;
 
@@ -172,7 +175,7 @@ body{
 
         margin: auto;
         color: rgb(56, 56, 56);
-        color:rgb(221, 238, 224);
+
 
     }
     .test{

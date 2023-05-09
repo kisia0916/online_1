@@ -21,6 +21,9 @@ router.get("/game",(req,res)=>{
     load_fun(req,res)
 
 })
+router.get("/urljoin/:id",(req,res)=>{
+    load_fun(req,res)
+})
 
 
 const load_fun = (req,res)=>{

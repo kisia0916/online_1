@@ -78,11 +78,7 @@ body{
     .host_name_input{
         width: 50%;
     }
-    .join_room_back{
-        top: 41px;
-        /* align-items: center; */
-        margin-left: 10%;
-    }
+
 
 }
 @media (max-width:630px){
@@ -94,10 +90,7 @@ body{
     width: 70%;
 
     }
-    .join_room_back{
-        top: 41px;
-        margin-left:20px;
-    }
+
     
 
 }

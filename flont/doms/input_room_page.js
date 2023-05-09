@@ -4,28 +4,30 @@ const inputRoom_dom = ()=>{
         
     </div>
     <div class="mkroom_top">
-    <div class="back_home">
-        <span class="material-symbols-outlined join_room_back">
-            arrow_back_ios
-            </span>
-    </div>
+    <div class = "back_button_1" onclick = "move_back(this.id,0)" id = "">
+    <span class="material-symbols-outlined back_button_rogo">
+    arrow_back
+    </span>
+</div>
     <div class="join_room_title">
         <span class="join_room_title_text">Join Room</span>
     </div>
 </div>
 <div class="mkroom_main">
     <div class="mkroom_center2">
-        <div class="Host_name2">
+        <div class="Host_name19">
             <div class="Host_name_title_warpp">
-                <span class="join_room_text">Room ID</span>
+                <span class="join_room_text5">Room ID</span>
             </div>
-            <input type="text" class="host_name_input">
+            <input type="text" class="host_name_input join_room_input" >
+
+
         </div>
 
         
 
-        <div class="start_button">
-            <span class="join_text">Join</span>
+        <div class="start_button" onclick="join_room()">
+            <span class="join_text3">Join</span>
         </div>
     </div>
 </div>

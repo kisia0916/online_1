@@ -20,9 +20,3 @@ const move_mist = ()=>{
     mist.remove()
 }
 
-let mist = document.querySelector(".move_mist")
-console.log(mist)
-mist.addEventListener('animationend', () => {
-  // アニメーション終了後に実行する内容
-  mist.remove()
-})

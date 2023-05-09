@@ -6,6 +6,7 @@ const title_dom = ()=>{
     <div class="main_warpp">
 
         <div class="main_space2">
+
             <div class="top">
                 <div class="title_text">
                     <div class="title_main">
@@ -48,7 +49,7 @@ const title_dom = ()=>{
                     </div>
                 </div>
 
-                <div class="button1" onclick="mk_room()">
+                <div class="button1" onclick="mk_room_setting()">
                     <span class="button1_text">MakeRoom</span>
 
                 </div>

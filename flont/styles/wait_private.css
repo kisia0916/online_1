@@ -57,22 +57,42 @@ body{
 
 
 }
+.join_room_back{
+    display: flex;
+    align-items: center;
+    position: absolute;
 
+
+
+    -webkit-transform : translateY(-50%);
+
+    transform : translateY(-50%);
+    color:rgb(221, 238, 224);;
+    
+}
 @media (min-width:630px){
-    .mode_select{
-        width: 530px;
-        height: 250px;
+    .Host_name2{
+        width: 500px;
+        height: 150px;
     }
     .host_name_input{
         width: 50%;
     }
-
+    .join_room_back{
+        top: 41px;
+        /* align-items: center; */
+        margin-left: 10%;
+    }
+    .Room_id_copy{
+        margin: auto;
+        margin-left:13px;
+    }
 
 }
 @media (max-width:630px){
-    .mode_select{
+    .Host_name2{
     width: 80%;
-    height: 250px;
+    height: 150px;
     }
     .host_name_input{
     width: 70%;
@@ -80,20 +100,24 @@ body{
     }
     .join_room_back{
         top: 41px;
-        margin-left:20px;
+        margin-left:0px;
     }
-    
+    .Room_id_copy{
+        margin: auto;
+        margin-left: 13px;
+
+    }
 
 }
-.mode_select{
-    background-color:rgba(186, 190, 188, 0.167);
-    /* width: 80%;
-    height: 100px; */
+.Host_name{
+    /* background-color:rgba(186, 190, 188, 0.167);
+    width: 80%;
+    height: 100px;
     margin: auto;
     border-radius: 13px;
     border: solid 1px rgb(179, 236, 187);;;
-    /* display: flex; */
-    color: rgb(221, 238, 224);;
+    display: flex; 
+    color: rgb(221, 238, 224);; */
 
 }
 .Host_name_title_warpp{
@@ -103,7 +127,7 @@ body{
 
 
 
-.join_room_text2{
+.join_room_text4{
 
     font-size: 150%;
     display: flex;
@@ -112,8 +136,93 @@ body{
     
 }
 
+.Room_Id_publick_warpp{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    margin-top: 10px;
+}
+.Room_Id_publick{
+    /* display: flex; */
+    margin: auto;
+    align-items: center;
+    margin-right: 14px;
+}
+.Room_id_copy{
+    /* margin: auto; */
+    font-size: 130%;
+        -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.Room_id_warpp{
+    border: solid 1px white;
+    border-radius: 20px;
+    width: 144px;
+    display: flex;
+}
+.RoomID{
+    /* display: flex; */
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+.Join_url_warpp{
+    display: flex;
+    margin-top: 12px;
+}
+.Join_URL{
+    margin: auto;
+    margin-right: 14px;
+}
 
 
+
+
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 1.5em;
+  height:1.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #ffffff;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
 @-webkit-keyframes load7 {
   0%,
   80%,
@@ -135,7 +244,7 @@ body{
   }
 }
 .loader{
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: 50px;
 }
 .private_wait_text{
@@ -163,43 +272,4 @@ body{
 .rogo_white{
     color: rgb(221, 238, 224);;
     font-size: 120%;
-}
-.vsCPU_button{
-    /* background-color: red; */
-    border: solid 1px white;
-    width: 80%;
-    height: 45px;
-    margin: auto;
-    margin-top: 30px;
-    border-radius: 25px;
-    display: flex;
-
-
-}
-.vshuman_button{
-    /* background-color: red; */
-    border: solid 1px white;
-
-    width: 80%;
-    height: 45px;
-    margin: auto;
-    margin-top: 30px;
-    border-radius: 25px;
-    display: flex;
-}
-.mode_select_button_text{
-    margin: auto;
-    margin-right: 0;
-}
-.select_rogo{
-    display: flex;
-    align-items: center;
-    margin-top: 0px;
-    margin-right: 10px;
-    padding-right:0 ;
-
-}
-.mode_text{
-    margin: auto;
-    margin-left: 0;
 }

@@ -26,11 +26,13 @@ Socket.on("start_game",(data)=>{
     move("game")
     stage.map =data.stage
     now_turn = data.now_turn
+    now_timer = 121
+    start_timer("id")
     turn.n = now_turn
 
 
     game_start()
-
+    // start_timer()
     main_loop()
     // checkPutSpace()
 })
@@ -54,6 +56,8 @@ Socket.on("join_game_ser",(data)=>{
         console.log("white")
     }
     move("game")
+    now_timer = 121
+    start_timer("id")
     stage.map = data.stage
     now_turn = data.now_turn
     turn.n = now_turn
@@ -62,6 +66,7 @@ Socket.on("join_game_ser",(data)=>{
 
 
     game_start()
+    // start_timer()
     main_loop()
     // checkPutSpace()
 
@@ -74,11 +79,64 @@ Socket.on("end_game",(data)=>{
     move("")
 }) 
 Socket.on("get_new_stage",(data)=>{
+    console.log("ooooooooooooooooooooooo")
+
+    timer_stop_flg = true
+
+    now_timer = 121
+    timer_stop_flg = false
+    // start_timer()
+    // clearInterval(start_timer)
+	let timer_text = document.querySelector(".turn_timer_text")
+    change_turn = true
+
+    if(change_turn){
+        if(text_color == "black"){
+            timer_text.style.color = "rgb(221, 238, 224)"
+            timer_text.textContent = "2:00"
+            // timer_warpp.style.border = "solid 1px rgb(221, 238, 224)"
+
+            text_color = "white"
+        }else if(text_color == "white"){
+            timer_text.style.color = "rgb(56, 56, 56)"
+            timer_text.textContent = "2:00"
+
+            // timer_warpp.style.border = "solid 1px rgb(56, 56, 56)"
+
+            text_color = "black"
+
+        }
+        change_turn = false
+    }
+
+    // let timer_text = document.querySelector(".turn_timer_text")
+    // if(text_color == "black"){
+    //     console.log("uououo")
+    //     // timer_text.style.color = "rgb(56, 56, 56)"
+    //     text_color = "white"
+    // }else if(text_color == "white"){
+    //     console.log("uououo")
+
+    //     // timer_text.style.color = "rgb(221, 238, 224)"
+    //     text_color = "black"
+    // }
+	// if(data.now_turn == 1){
+	// 	text_color = "rgb(56, 56, 56)"
+
+	// 	timer_text.style.color = text_color
+
+	// }else if(data.now_turn == 2){
+	// 	text_color = "rgb(221, 238, 224)"
+
+	// 	timer_text.style.color = text_color
+	// }
+	
     if(turn.n != data.now_turn){
         stage.map = data.stage
 
         now_turn = data.now_turn
         turn.n = data.now_turn
+
         console.log("lplplp")
         for(let i = 0;stage_height>i;i++){
             for(let s = 0;stage_width>s;s++){
@@ -181,12 +239,17 @@ Socket.on("send_private_id",(data)=>{
     console.log("ooooo")
     console.log(data.roomId)
     roomId = data.roomId
-    let id_space = document.getElementById("room_ID")
-    id_space.value = `${roomId}`
+    let id_space = document.querySelector(".RoomID")
+    let url_space = document.querySelector(".joinURL")
+    let button1 = document.querySelector(".room_copy1")
+    let button2 = document.querySelector(".room_copy2")
+    button1.id = roomId
+    button2.id = domain+"/urljoin/"+roomId
+    url_space.textContent = domain+"/urljoin/"+roomId
+    id_space.textContent = roomId
 })
 Socket.on("no_room",(data)=>{
-    let mess = document.querySelector(".room_message")
-    mess.textContent = "roomがありません"
+    alert("No Room")
 })
 Socket.on("koko",(data)=>{
     console.log(data)

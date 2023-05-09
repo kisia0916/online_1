@@ -52,8 +52,12 @@ body{
 
 @keyframes move_animation {
     0%{
-        background-color: rgba(133, 202, 200, 0.9);
+        background-color: rgba(133, 202, 200, 1) ;
 
+
+    }
+    10%{
+        background-color: rgba(133, 202, 200, 0.95) ;
 
     }
     /* 25%{
@@ -66,12 +70,13 @@ body{
         background-color: rgba(199, 226, 225, 0.25);
     } */
     100%{
-        background-color: rgba(199, 226, 225, 0);
+        background-color: rgba(199, 226, 225, 0) ;
 
     
     }
 }
 .move_mist{
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -79,8 +84,9 @@ body{
     background-color: rgba(199, 226, 225, 1);
     /* display: none; */
     animation:move_animation;
-    animation-duration:2.2s;
+    animation-duration:1.5s;
     background-color: rgba(199, 226, 225, 0);
+
 }
 .back_home{
     width: 40px;
@@ -96,4 +102,50 @@ body{
 .back_home:hover{
     background-color: rgba(173, 232, 248, 0.208);
 
+}
+@media (min-width:630px){
+    .back_button_1{
+        width: 43px;
+        height: 43px;
+        /* background-color: red; */
+        margin-top: 15px;
+        margin-left: 30%;
+        position:absolute;
+        border-radius: 50%;
+        /* background-color: rgba(144, 177, 190, 0.37); */
+        cursor: pointer;
+
+    }
+    .back_button_1:hover{
+        background-color: rgba(144, 177, 190, 0.37);
+    }
+    .back_button_rogo{
+        color: rgb(221, 238, 224);
+        font-size: 200%;
+        margin-top: 12%;
+        margin-left: 13%;
+    }
+}
+@media (max-width:630px){
+    .back_button_1{
+        width: 43px;
+        height: 43px;
+        /* background-color: red; */
+        margin-top: 3%;
+        margin-left: 10px;
+        position:absolute;
+        border-radius: 50%;
+        /* background-color: rgba(144, 177, 190, 0.37); */
+        cursor: pointer;
+
+    }
+    .back_button_1:hover{
+        background-color: rgba(144, 177, 190, 0.37);
+    }
+    .back_button_rogo{
+        color: rgb(221, 238, 224);
+        font-size: 200%;
+        margin-top: 12%;
+        margin-left: 13%;
+    }
 }

@@ -1,6 +1,6 @@
 const game_dom = ()=>{
     let html = `
-    <div class="move_mist" id = "move_mist">
+    <div class="move_mist move_mist2" id = "move_mist">
         
     </div>
     <div class="header">

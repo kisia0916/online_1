@@ -22,7 +22,11 @@ const analysis_url = ()=>{
         // window.history.pushState(null,"mkroom",location.pathname)
 
     }
-    else if(user_state == 4 && url_list[1] == "join"){
+    else if(user_state == 3.5 && url_list[1] == "privateroom"){
+        write_wait_private()
+        history.replaceState('','',"/privateroom");
+
+    }else if(user_state == 4 && url_list[1] == "join"){
         write_join_private_page()
         history.replaceState('','',"/join");
     // window.history.pushState(null,"test",location.pathname)
@@ -42,7 +46,12 @@ const analysis_url = ()=>{
         history.replaceState('','',"/game");
     // window.history.pushState(null,"test",location.pathname)
 
-    }else{
+    }else if (url_list[1] == "urljoin"){
+        // url_join(url_list[2])
+        write_url_join(url_list[2])
+        history.replaceState('','',`/urljoin/${url_list[2]}`);
+    }
+    else{
         console.log("kokokokkokoko")
         write_title_page()
         history.replaceState('','',"/");

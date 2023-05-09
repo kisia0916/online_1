@@ -92,7 +92,8 @@ io.on("connection",(socket)=>{
                     now_turn:1,
                     black:black,
                     white:white,
-                    pass_counter:0
+                    pass_counter:0,
+                    turn_timer:120
                 }
                 if(co1 == 0){
                     black = p1
@@ -214,7 +215,8 @@ io.on("connection",(socket)=>{
             now_turn:1,
             black:"",
             white:"",
-            pass_counter:0
+            pass_counter:0,
+            turn_timer:120,
         }
         wait_rooms.push(push_data)
         console.log(wait_rooms)
@@ -272,7 +274,25 @@ io.on("connection",(socket)=>{
         
         }
     })
+    socket.on("discon_match",(data)=>{
+        if(wait_match.indexOf(data.userId) != -1){
+            wait_match.splice(wait_match.indexOf(data.userId),1)
+            console.log(wait_match)
+        }
+    })
+    socket.on("remove_private_match",(data)=>{
+        console.log("lllll")
+        for(let i = 0;wait_rooms.length > i;i++){
+            if(wait_rooms[i].roomId == data.roomId){
+                wait_rooms.splice(i,1)
+                console.log(wait_rooms)
+                break
+            }
+        }
 
+
+        
+    })
 
     socket.on("disconnect",()=>{
         console.log("koko")
@@ -290,6 +310,13 @@ io.on("connection",(socket)=>{
                     io.to(joinRoomList[0].room).emit("end_game","end")
                     break
                 }
+            }
+
+        }
+        for(let i = 0;wait_rooms.length>i;i++){
+            if(wait_rooms[i].p1 == userId){
+                wait_rooms.splice(i,1)
+                console.log(wait_rooms)
             }
         }
         // console.log(players)

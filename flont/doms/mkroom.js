@@ -4,18 +4,18 @@ const mkroom_dom = ()=>{
         
     </div>
     <div class="mkroom_top">
-    <div class="back_home">
-        <span class="material-symbols-outlined mkroom_back">
-            arrow_back_ios
-            </span>
-    </div>
+    <div class = "back_button_1" onclick = "move_back(this.id,0)" id = "">
+    <span class="material-symbols-outlined back_button_rogo">
+    arrow_back
+    </span>
+</div>
     <div class="mkroom_title">
         <span class="mkroom_title_text">Make Room</span>
     </div>
 </div>
 <div class="mkroom_main">
     <div class="mkroom_center3">
-        <div class="Host_name">
+        <div class="Host_name4">
             <div class="Host_name_title_warpp">
                 <span class="host_name_text">Host Name</span>
             </div>
@@ -69,7 +69,7 @@ const mkroom_dom = ()=>{
             </select>
             </div>
         </div>
-        <div class="start_button">
+        <div class="start_button" onclick="mk_room()">
             <span class="start_text">Start</span>
         </div>
     </div>
