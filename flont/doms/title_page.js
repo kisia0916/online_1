@@ -57,6 +57,11 @@ const title_dom = ()=>{
                     <span class="button2_text">JoinRoom</span>
 
                 </div>
+                <i class="fa-brands fa-square-twitter icon-black"></i>
+                <i class="fa-brands fa-square-facebook icon-white"></i>
+
+                <i class="fa-brands fa-square-github icon-black"></i>
+                <i class="fa-brands fa-discord icon-white"></i>
             </div>
         </div>
 
