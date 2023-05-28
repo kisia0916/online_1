@@ -3,75 +3,63 @@ const title_dom = ()=>{
     <div class="move_mist" id = "move_mist">
         
     </div>
-    <div class="main_warpp">
+    <div class="title_text_main">
+    <div class="title_text_top">
+        <div class="title_text_warpp_12">
+            <span class="title_text_black_12">O</span><span class="title_text_white_12">N</span><span class="title_text_black_12">L</span><span class="title_text_white_12">I</span><span class="title_text_black_12">N</span><span class="title_text_white_12">E</span><br class="main_title_change">
 
-        <div class="main_space2">
-
-            <div class="top">
-                <div class="title_text">
-                    <div class="title_main">
-                        <div class = "title_text_1">
-                            <span class="title_black">O</span>
-                            <span class="title_white">N</span>
-                            <span class="title_black">L</span>
-                            <span class="title_white">I</span>
-                            <span class="title_black">N</span>
-                            <span class="title_white">E</span>
-                        </div>
-                        <div class="title_text_2">
-                            <span class="title_white">R</span>
-                            <span class="title_black">E</span>
-                            <span class="title_white">V</span>
-                            <span class="title_black">E</span>
-                            <span class="title_white">R</span>
-                            <span class="title_black">S</span>
-                            <span class="title_white">I</span>
-                        </div>
-                    </div>
-                    <span class="material-symbols-outlined menu">
-                        menu
-                    </span>
-                </div>
-
-            </div>
-            <div class="mode_buttons">
-                <div class="button1" onclick="offline_page()">
-                    <span class="button1_text">PlayOffline</span>
-                </div>
-
-                <div class="button2" onclick="start_matching()">
-                    <span class="button2_text">PlayOnline</span>
-                    <div class="online_user_num">
-                        <span class="material-symbols-outlined human_num">
-                        person
-                        </span>
-                        <span class="human_num_text">10</span>
-                    </div>
-                </div>
-
-                <div class="button1" onclick="mk_room_setting()">
-                    <span class="button1_text">MakeRoom</span>
-
-                </div>
-                <div class="button2" onclick="join_page()">
-                    <span class="button2_text">JoinRoom</span>
-
-                </div>
-                <i class="fa-brands fa-square-twitter icon-black"></i>
-                <i class="fa-brands fa-square-facebook icon-white"></i>
-
-                <i class="fa-brands fa-square-github icon-black"></i>
-                <i class="fa-brands fa-discord icon-white"></i>
-            </div>
-        </div>
-
-        <div class="bottom">
-            <span>©onlineriversi madeBy fumi</span>
-        </div>
+            <span class="title_text_black_12">R</span><span class="title_text_white_12">I</span><span class="title_text_black_12">V</span><span class="title_text_white_12">E</span><span class="title_text_black_12">R</span><span class="title_text_white_12">S</span><span class="title_text_black_12">I</span>
 
         </div>
+
 
     </div>
+    <div class="titleButtom">
+
+    </div>
+    <div class="setUserName_warpp">
+        <!-- <span class="title_now_player_text">online player 0</span><br/> -->
+        <div class="title_join_name">
+            <div class="title_name_space"></div>
+            <span class="setNameText">Nick Name</span><br/>
+            <input type="text" class="setUserName" placeholder="User Name">  
+        </div>
+        <div class="game_enter_button">
+            <span class="game_enter_button_text">Start</span>
+        </div>
+        <div>
+            <i class="fa-brands fa-square-twitter icon-black"></i>
+            <i class="fa-brands fa-square-facebook icon-white"></i>
+
+            <i class="fa-brands fa-square-github icon-black"></i>
+            <i class="fa-brands fa-discord icon-white"></i>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="bottom_rogo">
+<div>
+    <span class="rogo_black">O</span>
+    <span class="rogo_white">N</span>
+    <span class="rogo_black">L</span>
+    <span class="rogo_white">I</span>
+    <span class="rogo_black">N</span>
+    <span class="rogo_white">E</span>
+
+</div>
+<div>
+    <span class="rogo_white">R</span>
+    <span class="rogo_black">E</span>
+    <span class="rogo_white">V</span>
+    <span class="rogo_black">E</span>
+    <span class="rogo_white">R</span>
+    <span class="rogo_black">S</span>
+    <span class="rogo_white">I</span>
+</div>
+</div>
 
 
     `

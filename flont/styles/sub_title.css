@@ -1,0 +1,210 @@
+
+body{
+
+  
+    background: linear-gradient(150deg, #3b966d,#2e95a7);
+}
+
+
+    /* position: relative; */
+    /* min-width: 310px; */
+
+
+
+.main_space{
+    /* min-width: 310px; */
+
+    width: 100%;
+    height: 100%;
+    /* position:relative */
+
+}
+@media (max-width:670px){
+    .title_text_top{
+        font-size: 300%;
+        /* margin-right: 90px; */
+    
+    }
+    .title_join_name{
+        width: 80%;
+        max-width: 423px;
+        min-width: 260px;
+        height: 140px;
+    }
+    .setUserName{
+        width: 230px;
+        height: 34px;
+    }
+}
+@media (min-width:671px){
+    .title_text_top{
+        font-size: 430%;
+        /* margin-right: 90px; */
+    
+    }
+    .title_join_name{
+        width: 430px;
+        height: 150px;
+    }
+    .setUserName{
+        width: 240px;
+        height: 38px;
+    }
+    .main_title_change{
+        display: none;
+    }
+
+}
+@media (min-height:691px) {
+    .title_text_main{
+        top: 10%;
+    }
+    .setUserName_warpp{
+        margin-top: 35px;
+
+    }
+    .fa-brands{
+        font-size: 200%;
+        margin-top: 8vh;
+        margin-left: 10px;
+    }
+
+}
+@media (max-height:690px)  {
+    .title_text_main{
+        top: 4%;
+    }
+    .setUserName_warpp{
+        margin-top: 35px;
+
+    }
+    .fa-brands{
+
+        display: none;
+    }
+
+}
+@media (min-height:816px){
+    .title_text_main{
+        top: 10%;
+    }
+    .setUserName_warpp{
+        margin-top: 60px;
+    
+    }
+    .fa-brands{
+        font-size: 200%;
+        margin-top: 100px;
+        margin-left: 10px;
+    }
+}
+.title_text_main{
+
+    /* background-color: red; */
+    /* align-items: center; */
+    position:relative;
+    /* top: 7%; */
+    transform: translateY(5%); 
+    /* line-height: 100vh; */
+    margin: auto;
+    text-align: center;
+    /* margin-bottom: 30px; */
+    
+}
+.title_name_space{
+    width: 20px;
+    height: 14px;
+}
+.title_text_warpp_12{
+    /* display: flex; */
+}
+
+.title_text_black_12{
+    padding: 0;
+    margin: 0;
+    /* background-color: red; */
+    color: rgb(52, 51, 51);
+    /* margin-right: 3px; */
+
+}
+.title_text_white_12{
+    padding: 0;
+    margin: 0;
+    color:rgb(221, 238, 224);;
+    /* margin-right: 3px; */
+
+    
+    /* background-color: red; */
+
+}
+.title_now_player_text{
+    color: rgb(52, 51, 51);
+    font-size: 110%;
+    /* display: flex; */
+    /* padding-top: 1000px; */
+}
+
+.setUserName{
+    /* background-color: red; */
+
+    border-radius: 20px;
+    border: none;
+    margin-top: 16px;
+    background-color: rgba(255, 255, 255, 0.785);
+
+}
+.game_enter_button{
+    width: 140px;
+    height: 50px;
+    border-radius: 50px;
+    
+    /* background-color: rgb(254, 254, 254); */
+    border: 1px solid rgba(255, 255, 255, 0.83);
+    text-align: center;
+    margin: auto;
+    margin-top: 60px;
+}
+.game_enter_button_text{
+    color:rgb(221, 238, 224);;
+    font-size: 165%;
+    display: flex;
+
+    margin-left: 40px;
+    margin-top: 4%;
+
+
+
+
+    /* margin-top: 40px; */
+}
+.title_join_name{
+    background-color: rgba(251, 251, 251, 0.13);
+    border: 1px solid rgba(226, 226, 226, 0.63);
+    /* width: 40px; */
+    /* display: flex; */
+
+    border-radius: 15px;
+    margin: auto;
+}
+.setNameText{
+    font-size: 150% ;
+    /* position: absolute; */
+    /* display: flex; */
+    /* padding-top: 20px; */
+    color:rgb(221, 238, 224);;
+
+    /* margin-top: 20px; */
+}
+
+.icon-black{
+    color: rgb(52, 51, 51);
+    margin-right: 10px;
+}
+.icon-white{
+    color:rgb(221, 238, 224);
+    margin-right: 10px;
+
+
+}
+
+
