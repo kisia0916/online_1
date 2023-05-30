@@ -16,6 +16,7 @@ const connection_p2p = (id)=>{
     if(peer){
         try{
             conn = peer.connect(id)
+            console.log("せつそくううううう")
             conn.on('open',()=>{
                 console.log('接続に成功しました')
             
@@ -27,6 +28,9 @@ const connection_p2p = (id)=>{
 }
 const discon_p2p = ()=>{
     conn = undefined
+}
+const send_p2p = (mess) =>{
+    conn.send(mess)
 }
 peer.on('connection', conn => {
     console.log("setuzoku")

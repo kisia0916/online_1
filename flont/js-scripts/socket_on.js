@@ -2,7 +2,7 @@
 
 Socket.on("set_data",(data)=>{
     userId = data.userId
-
+    Socket.emit("set_info",{userId:userId,p2pId:p2pId})
     
 })
 
@@ -12,6 +12,7 @@ Socket.on("start_game",(data)=>{
     p2 = data.p2
     black = data.black
     white = data.white
+    connection_p2p(data.other_p2p_Id)
     pass_counter = data.pass_counter
     console.log(roomId,p1,p2,black,white)
     user_state = 2
@@ -44,6 +45,8 @@ Socket.on("join_game_ser",(data)=>{
     p2 = data.p2
     black = data.black
     white = data.white
+    connection_p2p(data.other_p2p_Id)
+
     pass_counter = data.pass_counter
 
     Socket.emit("join_match",{roomId:roomId})

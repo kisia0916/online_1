@@ -7,6 +7,7 @@ const start_matching = ()=>{
         console.log("test")
         user_state = 1
         move("waitmatch")
+        console.log(p2pId)
         Socket.emit("join_matching",{userId:userId,p2pId:p2pId})
     }
 }

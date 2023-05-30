@@ -10,7 +10,8 @@ const pages = require("./router/page_routers")
 const ejs = require("ejs")
 const uuid = require('node-uuid');
 const { resolveModuleName } = require("typescript")
-const { SocketAddress } = require("net")
+
+
 const index_page = fs.readFileSync("./views/index.ejs","utf-8")
 
 
@@ -39,20 +40,28 @@ let wait_match = []
 let games = []
 let players = []
 let wait_rooms = []
-
+let user_info = []
 io.on("connection",(socket)=>{
     console.log("ff")
     let userId = uuid.v4()
+    let p2pId = ""
     let joinRoomList = [{room:""},{user:""}]//このユーザーが入っているsocketのrooomの情報
     socket.join(userId)
     players.push(userId)
 
+
     io.to(userId).emit("set_data",{userId:userId})
     joinRoomList[1].user = userId
+    socket.on("set_info",(data)=>{
+        user_info.push({userId:data.userId,p2pId:data.p2pId})
+        console.log(user_info)
+        p2pId = data.p2pId
+    })
     socket.on("join_matching",(data)=>{
         if(wait_match.indexOf(userId) == -1){
             // console.log(userId)
             wait_match.push(userId)
+
             if(wait_match.length >=2){
                 let p1 = ""
                 let p2 = ""
@@ -60,10 +69,25 @@ io.on("connection",(socket)=>{
                 let p2p2 = ""
                 p1 = wait_match[0]
                 p2 = wait_match[1]
-                
+
+                let co = 0
+                for (let i = 0;user_info.length>i;i++){
+                    if(user_info[i].userId == p1){
+                        co+=1
+                        p2p1 = user_info[i].p2pId
+                    }
+                    if(user_info[i].userId == p2){
+                        co+=1
+                        p2p2 = user_info[i].p2pId
+                    }
+                    if(co >= 2){
+                        break
+                    }
+                }
                 console.log(wait_match)
                 console.log(wait_match[0])
                 console.log(wait_match[1])
+                console.log(p2p1,p2p2)
 
                 wait_match.splice(0,2)
                 let co1 = ""
@@ -93,6 +117,8 @@ io.on("connection",(socket)=>{
                     ],
                     p1:p1,
                     p2:p2,
+                    p2p1:p2p1,
+                    p2p2:p2p2,
                     now_turn:1,
                     black:black,
                     white:white,
@@ -110,8 +136,8 @@ io.on("connection",(socket)=>{
                     }else{
                         my_color = 2
                     }
-                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
-                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
+                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p1})
+                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p2})
                 }else if(co1 == 1){
                     black = p2
                     white = p1
@@ -122,8 +148,8 @@ io.on("connection",(socket)=>{
                     }else{
                         my_color = 1
                     }
-                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
-                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter})
+                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p2})
+                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p1})
 
                 }
                 
@@ -308,6 +334,13 @@ io.on("connection",(socket)=>{
         players.splice(players.indexOf(userId),1)
         if(wait_match.indexOf(userId) != -1){
             wait_match.splice(wait_match.indexOf(userId),1)
+        }
+        for(let i = 0;user_info.length>i;i++){
+            if(user_info[i].userId == userId){
+                user_info.splice(i,1)
+                console.log(user_info)
+                break
+            } 
         }
 
         if(joinRoomList[0].room != ""){
