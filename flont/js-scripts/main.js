@@ -10,6 +10,9 @@ let now_timer = 60
 let timer_stop_flg = false
 let text_color = "black"
 let change_turn = false
+
+const domain2 = "localhost"
+
 document.cookie = "name=test"
 console.log(document.cookie.name)
 const init_data = ()=>{

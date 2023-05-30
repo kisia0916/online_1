@@ -7,7 +7,7 @@ const start_matching = ()=>{
         console.log("test")
         user_state = 1
         move("waitmatch")
-        Socket.emit("join_matching",{userId:userId})
+        Socket.emit("join_matching",{userId:userId,p2pId:p2pId})
     }
 }
 const send_stage = ()=>{
@@ -34,6 +34,28 @@ const offline_page = ()=>{
     user_state = 5
     move("offline")
 }
+const mode_page = ()=>{
+    user_state = 0.5
+    let input = document.querySelector(".setUserName")
+    user_name = input.value
+
+    if(user_name){
+        user_name = user_name.replace(/[&'`"<>]/g, function(match) {
+            return {
+              '&': '&amp;',
+              "'": '&#x27;',
+              '`': '&#x60;',
+              '"': '&quot;',
+              '<': '&lt;',
+              '>': '&gt;',
+            }[match]
+          });
+        move("modeselect")
+    }else{
+        input.style.backgroundColor = "rgba(251,143,143,0.79)"
+        input.style.border = "2px soild rgba(91,91,91,0.79)"
+    }
+}
 
 const join_room = ()=>{
     let data = document.querySelector(".join_room_input").value
@@ -51,4 +73,8 @@ const remove_private_match = (roomId)=>{
 }
 const remove_online_match = () =>{
     
+}
+const discon_p2p_sokcet = (userId)=>{
+    Socket.emit("discon_p2p_socket",{userId:userId})
+    conn = undefined
 }

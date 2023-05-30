@@ -39,6 +39,7 @@ let wait_match = []
 let games = []
 let players = []
 let wait_rooms = []
+
 io.on("connection",(socket)=>{
     console.log("ff")
     let userId = uuid.v4()
@@ -55,8 +56,11 @@ io.on("connection",(socket)=>{
             if(wait_match.length >=2){
                 let p1 = ""
                 let p2 = ""
+                let p2p1 = ""
+                let p2p2 = ""
                 p1 = wait_match[0]
                 p2 = wait_match[1]
+                
                 console.log(wait_match)
                 console.log(wait_match[0])
                 console.log(wait_match[1])
@@ -212,9 +216,11 @@ io.on("connection",(socket)=>{
             ],
             p1:data.userId,
             p2:"",
+            
             now_turn:1,
             black:"",
             white:"",
+            
             pass_counter:0,
             turn_timer:120,
         }
@@ -293,8 +299,11 @@ io.on("connection",(socket)=>{
 
         
     })
-
+    socket.on("discon_p2p_socket",(data)=>{
+        io.to(data.userId).emit("discon_p2p",{})
+    })
     socket.on("disconnect",()=>{
+
         console.log("koko")
         players.splice(players.indexOf(userId),1)
         if(wait_match.indexOf(userId) != -1){
@@ -308,6 +317,8 @@ io.on("connection",(socket)=>{
 
                     games.splice(i,1)
                     io.to(joinRoomList[0].room).emit("end_game","end")
+                    io.to(joinRoomList[0].room).emit("discon_p2p",{})
+
                     break
                 }
             }

@@ -1,5 +1,7 @@
-const analysis_url = ()=>{
 
+
+const analysis_url = ()=>{
+    // connection_p2p(userId)
     let url = location.pathname
     let url_list = url.split("/")
     console.log(url_list)
@@ -16,7 +18,13 @@ const analysis_url = ()=>{
         // window.history.pushState(null,"top",location.pathname)
 
 
-    }else if(user_state == 3 && url_list[1] == "mkroom"){
+    }else if(user_state== 0.5 && url_list[1] == "modeselect"){
+        write_modeselect()
+
+
+        history.replaceState('','',"/modeselect");
+    }
+    else if(user_state == 3 && url_list[1] == "mkroom"){
         write_mkroom_page()
         history.replaceState('','',"/mkroom");
         // window.history.pushState(null,"mkroom",location.pathname)

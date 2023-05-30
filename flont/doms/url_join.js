@@ -4,7 +4,7 @@ const url_join_dom = (id)=>{
         
     </div>
     <div class="mkroom_top">
-    <div class = "back_button_1" onclick = "move_back(this.id,0)" id = "">
+    <div class = "back_button_1" onclick = "move_back(this.id,0.5)" id = "modeselect">
     <span class="material-symbols-outlined back_button_rogo">
     arrow_back
     </span>

@@ -1,8 +1,9 @@
 
 
-
 Socket.on("set_data",(data)=>{
     userId = data.userId
+
+    
 })
 
 Socket.on("start_game",(data)=>{
@@ -17,6 +18,7 @@ Socket.on("start_game",(data)=>{
     Socket.emit("join_match",{roomId:roomId})
     my_turn = data.my_color
     if(data.black == userId){
+
         console.log("black")
         my_color = "black"
     }else if(data.white == userId){
@@ -259,4 +261,8 @@ Socket.on("mess",(data)=>{
 })
 Socket.on("test1",(data)=>{
     alert(data)
+})
+Socket.on("discon_p2p",(data)=>{
+    conn = undefined
+    console.log("切断しました")
 })

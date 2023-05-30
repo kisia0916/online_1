@@ -1,0 +1,280 @@
+html{
+    
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+    height: 100vh;
+    background: linear-gradient(150deg, #3b966d,#2e95a7);
+    /* position: relative; */
+}
+.main_space{
+    width: 100%;
+    height: 100vh;
+
+
+}
+.sltop{
+    /* background-color: red; */
+    width: 100%;
+    height: 70px;
+    display:flex;
+    margin-bottom: 50px;
+    padding-top: 3px;
+
+}
+.slmain{
+    /* background-color: blue; */
+    width: 100%;
+    height:calc(100% - 140px);
+    min-height: 330px;
+    /* position: relative; */
+}
+
+    .slcenter{
+        /* width: 300px;
+        height: 300px; */
+        width: 100%;
+        /* height: 80%; */
+        /* display: flex; */
+        margin: auto;
+        position: relative;
+        top: 51%;
+        -webkit-transform : translateY(-100%);
+        transform : translateY(-100%);
+        /* background-color: antiquewhite; */
+
+    }
+
+.join_room_title{
+    color:rgb(221, 238, 224);;
+    margin: auto;
+    font-size: 150%;
+    margin-top: 18px;
+
+
+}
+.join_room_back{
+    display: flex;
+    align-items: center;
+    position: absolute;
+
+    
+
+    -webkit-transform : translateY(-50%);
+
+    transform : translateY(-50%);
+    color:rgb(221, 238, 224);;
+    
+}
+
+@media (min-width:630px){
+    .slmodeSelect{
+        width: 530px;
+        height: 250px;
+    }
+    .host_name_input{
+        width: 50%;
+    }
+    .join_room_back{
+        top: 41px;
+        /* align-items: center; */
+        margin-left: 10%;
+    }
+    .slButton1Warpp{
+        margin: auto;
+
+        margin-right: 65px;
+    }
+    .slButton2Warpp{
+        margin: auto;
+
+        margin-left: 65px;
+    }
+    .slButton3Warpp{
+        margin: auto;
+
+        margin-right: 65px;
+    }
+    .slButton4Warpp{
+        margin: auto;
+
+        margin-left: 65px;
+    }
+
+}
+@media (max-width:629px){
+    .slmodeSelect{
+    width: 80%;
+    height: 250px;
+    }
+    .host_name_input{
+    width: 70%;
+
+    }
+    .join_room_back{
+        top: 41px;
+        margin-left:20px;
+    }
+    .slButton1Warpp{
+        margin: auto;
+
+        margin-right: 42px;
+    }
+    .slButton2Warpp{
+        margin: auto;
+
+        margin-left: 42px;
+    }
+    .slButton3Warpp{
+        margin: auto;
+
+        margin-right: 42px;
+    }
+    .slButton4Warpp{
+        margin: auto;
+
+        margin-left: 42px;
+    }
+
+}
+.slmodeSelect{
+    margin: auto;
+
+}
+
+
+
+
+.modebuttonTop{
+    /* width: 100%; */
+
+
+}
+.buttonWarpp{
+    display: flex;
+    margin-bottom: 90px;
+    /* margin: auto; */
+}
+.slButton1Warpp{
+
+
+    border-radius: 50%;
+
+
+}
+.slButton2Warpp{
+
+
+    border-radius:50% ;
+
+
+}
+
+.slButton3Warpp{
+
+
+
+
+    border-radius: 50%;
+
+
+}
+.slButton4Warpp{
+
+
+    border-radius: 50%;
+
+
+
+}
+.slButton1{
+    width: 83px;
+    height: 83px;
+    background-color:rgb(52, 51, 51);
+    display: flex;
+    border-radius:50% ;
+}
+.slButton2{
+    width: 83px;
+    height: 83px;
+    background-color:rgb(221, 238, 224);
+
+    display: flex;
+
+    border-radius:50% ;
+}
+.slButton3{
+    width: 83px;
+    height: 83px;
+    background-color:rgb(221, 238, 224);
+    display: flex;
+
+
+    border-radius:50% ;
+}
+.slButton4{
+    width: 83px;
+    height: 83px;
+    background-color:rgb(52, 51, 51);
+
+    display: flex;
+
+
+    border-radius:50% ;
+}
+
+.mode1Icon{
+
+    display: flex;
+    color:rgb(255, 255, 255);
+    font-size: 280%;
+
+    margin: auto;
+    margin-top: 18px;
+
+}
+.mode2Icon{
+    display: flex;
+    color:rgb(52, 51, 51);
+    font-size: 280%;
+    margin: auto;
+
+    margin-top: 18px;
+
+}
+.bl{
+    color:rgb(52, 51, 51);
+    /* margin-left: 30px; */
+    display: flex;
+    margin-top: 15px;
+    /* margin-left: 3px; */
+    font-size: 105%;
+}
+.wh{
+    color:rgb(255, 255, 255);
+    display: flex;
+    margin-top: 15px;
+    font-size: 105%;
+
+}
+.bottom_rogo{
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+    /* bottom: 0px; */
+    margin-left: 10px;
+
+}
+
+.rogo_black{
+    font-size: 120%;
+
+    color: rgb(52, 51, 51);
+}
+.rogo_white{
+    color: rgb(221, 238, 224);;
+    font-size: 120%;
+}
+
+

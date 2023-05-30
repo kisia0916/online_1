@@ -34,3 +34,7 @@ const write_url_join = (id)=>{
     let space = document.querySelector(".main_space")
     space.innerHTML = url_join_dom(id)
 }
+const write_modeselect = (id)=>{
+    let space = document.querySelector(".main_space")
+    space.innerHTML = modeselect_dom()
+}

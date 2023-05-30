@@ -24,7 +24,7 @@ const title_dom = ()=>{
             <span class="setNameText">Nick Name</span><br/>
             <input type="text" class="setUserName" placeholder="User Name">  
         </div>
-        <div class="game_enter_button">
+        <div class="game_enter_button" onclick="mode_page()" id="modeselect">
             <span class="game_enter_button_text">Start</span>
         </div>
         <div>
