@@ -2,7 +2,7 @@
 
 Socket.on("set_data",(data)=>{
     userId = data.userId
-    Socket.emit("set_info",{userId:userId,p2pId:p2pId})
+    Socket.emit("set_info",{userId:userId,p2pId:p2pId,name:user_name})
     
 })
 
@@ -12,6 +12,8 @@ Socket.on("start_game",(data)=>{
     p2 = data.p2
     black = data.black
     white = data.white
+    console.log("klklklklklklklklklklklklklklklklkl")
+    console.log(data)
     connection_p2p(data.other_p2p_Id)
     pass_counter = data.pass_counter
     console.log(roomId,p1,p2,black,white)
@@ -45,6 +47,8 @@ Socket.on("join_game_ser",(data)=>{
     p2 = data.p2
     black = data.black
     white = data.white
+    console.log(data)
+
     connection_p2p(data.other_p2p_Id)
 
     pass_counter = data.pass_counter
@@ -88,8 +92,10 @@ Socket.on("get_new_stage",(data)=>{
 
     timer_stop_flg = true
 
-    now_timer = 121
+    now_timer = 120
     timer_stop_flg = false
+    stop_timer()
+    start_timer()
     // start_timer()
     // clearInterval(start_timer)
 	let timer_text = document.querySelector(".turn_timer_text")

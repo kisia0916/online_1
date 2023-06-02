@@ -13,16 +13,17 @@ const peer = new Peer(p2pId, {
     path: '/'
   });
 const connection_p2p = (id)=>{
+    console.log("connection")
     if(peer){
         try{
             conn = peer.connect(id)
-            console.log("せつそくううううう")
+            console.log("せつそくうううううo")
             conn.on('open',()=>{
                 console.log('接続に成功しました')
             
             })
         }catch{
-            console.log("test")
+            console.log("接続エラー")
         }
     }
 }
@@ -35,7 +36,12 @@ const send_p2p = (mess) =>{
 peer.on('connection', conn => {
     console.log("setuzoku")
 	conn.on('data', data => {
-		alert(data)
+		if(data.type == "timer"){
+            timer_update(data.data)
+        }
 	});
 });
 
+const send_p2pTimer = ()=>{
+    conn.send({type:"timer",data:now_timer})
+}
