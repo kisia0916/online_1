@@ -63,8 +63,8 @@ const mkroom_dom = ()=>{
                 
             <select class="color_select3">
                 <option>random</option> 
-                <option>Black</option>
-                <option>White</option>
+                <option>black</option>
+                <option>white</option>
 
             </select>
             </div>

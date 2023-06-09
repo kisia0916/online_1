@@ -44,7 +44,7 @@ body{
         position: relative;
         top: 50%;
         -webkit-transform : translateY(-50%);
-        transform : translateY(-120%);
+        transform : translateY(-90%);
         /* background-color: antiquewhite; */
 
     }
@@ -195,4 +195,39 @@ body{
 }
 .url_join_button:hover{
     background-color: rgba(176, 192, 199, 0.504);
+}
+.url_join_warpp{
+    background-color: rgba(251, 251, 251, 0.13);
+    border: 1px solid rgba(226, 226, 226, 0.63);
+    width: 80%;
+    max-width: 423px;
+    min-width: 260px;
+    height: 140px;
+    margin: auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.urlJoinNameTop{
+    display: flex;
+}
+.urlJoinMain{
+    margin-top: 10px;
+    display: flex;
+}
+.urlJoinNameText{
+    display: flex;
+    font-size: 150%;
+    color: rgb(221, 238, 224);
+    margin: auto;
+    margin-top: 14px;
+}
+.urlJoinInput{
+    width: 230px;
+    height: 34px;
+    border-radius: 20px;
+    border: none;
+    /* margin-top: 30px; */
+    background-color: rgba(255, 255, 255, 0.785);
+    margin: auto;
 }

@@ -56,6 +56,7 @@ const analysis_url = ()=>{
 
     }else if (url_list[1] == "urljoin"){
         // url_join(url_list[2])
+        user_state == 6
         write_url_join(url_list[2])
         history.replaceState('','',`/urljoin/${url_list[2]}`);
     }
@@ -74,7 +75,11 @@ const analysis_url = ()=>{
 
 })
 }
-analysis_url()
+
+    analysis_url()
+
+
+
 window.addEventListener('popstate', function(e) {
     console.log("test")
 

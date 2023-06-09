@@ -46,15 +46,25 @@ io.on("connection",(socket)=>{
     let userId = uuid.v4()
     let p2pId = ""
     let user_name = ""
+    let set_data_flg = false
     let joinRoomList = [{room:""},{user:""}]//このユーザーが入っているsocketのrooomの情報
     socket.join(userId)
     players.push(userId)
 
 
-    io.to(userId).emit("set_data",{userId:userId})
+    socket.on("move_modepage",(data)=>{
+        io.to(userId).emit("set_data",{userId:userId})
+    })
+    socket.on("send_set_data",(data)=>{
+        console.log("kopjgiofpajorfn")
+        io.to(userId).emit("set_data",{userId:userId})
+    })
     joinRoomList[1].user = userId
     socket.on("set_info",(data)=>{
-        user_info.push({userId:data.userId,p2pId:data.p2pId,name:data.name})
+        if(!set_data_flg){
+            user_info.push({userId:data.userId,p2pId:data.p2pId,name:data.name})
+            set_data_flg = true
+        }
         console.log(user_info)
         p2pId = data.p2pId
         user_name = data.name
@@ -79,13 +89,13 @@ io.on("connection",(socket)=>{
                     if(user_info[i].userId == p1){
                         co+=1
                         p2p1 = user_info[i].p2pId
-                        p1name = user_info[i].p1name
+                        p1name = user_info[i].name
 
                     }
                     if(user_info[i].userId == p2){
                         co+=1
                         p2p2 = user_info[i].p2pId
-                        p2name = user_info[i].p2name
+                        p2name = user_info[i].name
 
                     }
                     if(co >= 2){
@@ -132,6 +142,8 @@ io.on("connection",(socket)=>{
                     now_turn:1,
                     black:black,
                     white:white,
+                    black_name:"",
+                    white_name:"",
                     pass_counter:0,
                     turn_timer:120
                 }
@@ -140,26 +152,30 @@ io.on("connection",(socket)=>{
                     white = p2
                     push_data.black = black
                     push_data.white = white
+                    push_data.black_name = p1name
+                    push_data.white_name = p2name
 
                     if(p1 == userId){
                         my_color = 1
                     }else{
                         my_color = 2
                     }
-                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p2,p1name:p1name,p2name:p2name})
-                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p1,p1name:p1name,p2name:p2name})
+                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p2,black_name:push_data.black_name,white_name:push_data.white_name})
+                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p1,white:p2,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p1,black_name:push_data.black_name,white_name:push_data.white_name})
                 }else if(co1 == 1){
                     black = p2
                     white = p1
                     push_data.black = black
                     push_data.white = white
+                    push_data.black_name = p2name
+                    push_data.white_name = p1name
                     if(p1 == userId){
                         my_color = 2
                     }else{
                         my_color = 1
                     }
-                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p2,p1name:p1name,p2name:p2name})
-                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p1,p1name:p1name,p2name:p2name})
+                    io.to(p1).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p2,black_name:push_data.black_name,white_name:push_data.white_name})
+                    io.to(roomId).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:p2,white:p1,my_color:my_color,stage:push_data.stage,now_turn:push_data.now_turn,pass_counter:push_data.pass_counter,other_p2p_Id:p2p1,black_name:push_data.black_name,white_name:push_data.white_name})
 
                 }
                 
@@ -238,9 +254,17 @@ io.on("connection",(socket)=>{
     socket.on("mkroom_emit",(data)=>{
         let room_id = uuid.v4()
         socket.join(room_id)
-        io.to(room_id).emit("send_private_id",{roomId:room_id})
+        io.to(room_id).emit("send_private_id",{roomId:room_id,room_name:data.room_name})
         let p2p1 = ""
-
+        let black_c = ""
+        let white_c = ""
+        let black_n = ""
+        let white_n = ""
+        if(data.color == "black"){
+            black_c = data.userId
+        }else if(data.color == "white"){
+            white_c = data.userId
+        }
         let push_data = {
             roomId:room_id,
             stage:[
@@ -255,6 +279,7 @@ io.on("connection",(socket)=>{
                 [0,0,0,0,0,0,0,0],
 
             ],
+            room_name:data.room_name,
             p1:data.userId,
             p2:"",
             p2p1:p2pId,
@@ -262,37 +287,81 @@ io.on("connection",(socket)=>{
             p1name:user_name,
             p2name:"",
             now_turn:1,
-            black:"",
-            white:"",
-            
+            black:black_c,
+            white:white_c,
+            black_name:black_n,
+            white_name:white_n,
+            turn_time:data.turn_time,
             pass_counter:0,
-            turn_timer:120,
+            turn_timer:data.turn_time,
+            turn_mode:data.color
         }
         wait_rooms.push(push_data)
         console.log(wait_rooms)
     })
+    // socket.on("get_room_name",(data)=>{
+    //     let co =0
+    //     for(let i = 0;wait_rooms.length>i;i++){
+    //         if(wait_rooms[i].roomId == data.id){
+    //             co+=1
+    //             io.to(data.userId).emit("return_send_name",{name:wait_rooms[i].room_name})
+    //             break
+    //         }
+            
+    //     }
+    //     if(co == 0){
+    //         io.to(data.userId).emit("return_send_name",{name:"undifind"})
 
+    //     }
+    // })
+    socket.on("reqest_send_roomName",(data)=>{
+        console.log("oooooooooooofdfsfdsoo")
+        console.log(data)
+        let room_name = ""
+        for(let i = 0;wait_rooms.length>i;i++){
+            if(data.id == wait_rooms[i].roomId){
+                console.log(wait_rooms[i].room_name)
+                console.log("jiiiiiiiiiiiiiiiiiiiiiiiiiijiji")
+                io.to(data.userId).emit("response_send_roomName",{room_name:wait_rooms[i].room_name})
+            }
+            break
+        }
+    })
     socket.on("join_room",(data)=>{
         let co = 0
+        console.log("kkkkkk")
+        console.log(data)
         for (let i = 0;wait_rooms.length>i;i++){
             if(wait_rooms[i].roomId == data.roomId){
                 wait_rooms[i].p2 = userId
-                let co2 = Math.floor(Math.random()*2)
+                let co2 = null
+                if(wait_rooms[i].turn_mode == "random"){
+                    co2 = Math.floor(Math.random()*2)
+                }else if(wait_rooms[i].turn_mode == "black"){
+                    co2 = 0
+                }else if(wait_rooms[i].turn_mode == "white"){
+                    co2 = 1
+                }
                 let my_color_p1 = ""
                 let my_color_p2 = ""
 
                 let p1 = wait_rooms[i].p1
                 let p2 = wait_rooms[i].p2
                 joinRoomList[0].room = data.roomId
-
+                wait_rooms[i].p2name =data.name
                 if(co2 == 0){
                     wait_rooms[i].black = wait_rooms[i].p2
                     wait_rooms[i].white = wait_rooms[i].p1
+                    wait_rooms[i].white_name = data.name
+                    wait_rooms[i].black_name = wait_rooms[i].p1name
+
                     my_color_p2 = 1
                     my_color_p1 = 2
                     wait_rooms[i].black = p1
+
                     wait_rooms[i].white = p2
 
+                    
                     console.log(0)
 
                 }else{
@@ -302,14 +371,18 @@ io.on("connection",(socket)=>{
                     my_color_p1 = 1
                     wait_rooms[i].black = p2
                     wait_rooms[i].white = p1
-
+                    wait_rooms[i].white_name =wait_rooms[i].p1name
+                    wait_rooms[i].black_name =data.name
                     console.log(wait_rooms)
 
                     console.log(1)
 
                 }
-                for(let s = 0;user_info.length>s++;s++){
+                console.log("おおおおお")
+                console.log(user_info)
+                for(let s = 0;user_info.length>s;s++){
                     if(user_info[s].userId == wait_rooms[i].p2){
+                        console.log("おおおおおおお")
                         console.log(wait_rooms[i])
                         wait_rooms[i].p2p2 = user_info[s].p2pId
                         break
@@ -323,8 +396,8 @@ io.on("connection",(socket)=>{
 
 
                 socket.join(roomId)
-                io.to(p2).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:wait_rooms[i].black,white:wait_rooms[i].white,my_color:my_color_p2,stage:wait_rooms[i].stage,now_turn:wait_rooms[i].now_turn,pass_counter:wait_rooms[i].pass_counter,other_p2p_Id:wait_rooms[i].p2p1,other_name:wait_rooms[i].p1name})
-                io.to(p1).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:wait_rooms[i].black,white:wait_rooms[i].white,my_color:my_color_p1,stage:wait_rooms[i].stage,now_turn:wait_rooms[i].now_turn,pass_counter:wait_rooms[i].pass_counter,other_p2p_Id:wait_rooms[i].p2p2,other_name:wait_rooms[i].p1name})
+                io.to(p2).emit("join_game_ser",{roomId:roomId,p1:p1,p2:p2,black:wait_rooms[i].black,white:wait_rooms[i].white,my_color:my_color_p2,stage:wait_rooms[i].stage,now_turn:wait_rooms[i].now_turn,pass_counter:wait_rooms[i].pass_counter,other_p2p_Id:wait_rooms[i].p2p1,black_name:wait_rooms[i].black_name,white_name:wait_rooms[i].white_name,turn_time:wait_rooms[i].turn_time})
+            io.to(p1).emit("start_game",{roomId:roomId,p1:p1,p2:p2,black:wait_rooms[i].black,white:wait_rooms[i].white,my_color:my_color_p1,stage:wait_rooms[i].stage,now_turn:wait_rooms[i].now_turn,pass_counter:wait_rooms[i].pass_counter,other_p2p_Id:wait_rooms[i].p2p2,black_name:wait_rooms[i].black_name,white_name:wait_rooms[i].white_name,turn_time:wait_rooms[i].turn_time})
                 wait_rooms.splice(i,1)
 
                 co = 1

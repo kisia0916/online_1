@@ -1,3 +1,5 @@
+
+
 const write_game_page = ()=>{
     let space = document.querySelector(".main_space")
     space.innerHTML = game_dom()
@@ -31,10 +33,12 @@ const write_wait_private = ()=>{
     space.innerHTML = wait_private_dom()
 }
 const write_url_join = (id)=>{
+    Socket.emit("send_set_data","")
     let space = document.querySelector(".main_space")
     space.innerHTML = url_join_dom(id)
 }
 const write_modeselect = (id)=>{
     let space = document.querySelector(".main_space")
     space.innerHTML = modeselect_dom()
+    Socket.emit("move_modepage","")
 }

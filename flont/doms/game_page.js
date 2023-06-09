@@ -37,7 +37,7 @@ const game_dom = ()=>{
 </div>
 <div class="main_warpp9">
     <div class="turn_timer">
-        <span class="turn_timer_text">2:00</span>
+        <span class="turn_timer_text">0:00</span>
     </div>
     <canvas width="600" height="600" class="canvas"></canvas>
 

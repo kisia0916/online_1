@@ -60,8 +60,6 @@ const title_dom = ()=>{
     <span class="rogo_white">I</span>
 </div>
 </div>
-
-
     `
     return html
 }

@@ -43,5 +43,7 @@ peer.on('connection', conn => {
 });
 
 const send_p2pTimer = ()=>{
-    conn.send({type:"timer",data:now_timer})
+    if(conn){
+        conn.send({type:"timer",data:now_timer})
+    }
 }

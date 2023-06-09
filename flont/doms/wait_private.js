@@ -25,7 +25,9 @@ const wait_private_dom = ()=>{
                 <div class="Room_Id_publick_warpp">
                     <span class="Room_Id_publick">Room ID</span>
                     <div class="Room_id_warpp">
-                        <span class="RoomID"></span>
+
+                        <input type="text" class ="urlJoinInput1 joinID12"/>
+
                     </div>
                     <span class="material-symbols-outlined Room_id_copy room_copy1" onclick="copy_text(this.id)">
                         content_copy
@@ -34,9 +36,10 @@ const wait_private_dom = ()=>{
                 <div class="Join_url_warpp">
                     <span class="Join_URL">Join URL</span>
                     <div class="Room_id_warpp">
-                        <span class="RoomID joinURL"></span>
+
+                        <input type="text" class ="urlJoinInput1 joinURL12"/>
                     </div>
-                    <span class="material-symbols-outlined Room_id_copy room_copy2" onclick="copy_text(this.id)">
+                    <span class="material-symbols-outlined Room_id_copy room_copy2" onclick="copy_text2(this.id)">
                         content_copy
                         </span>
                 </div>

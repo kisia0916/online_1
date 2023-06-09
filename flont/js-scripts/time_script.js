@@ -57,7 +57,7 @@ const timer_update = (time)=>{
 		second = "0"+second
 	}
 
-	if(!timer_stop_flg && time <= 120){
+	if(!timer_stop_flg && time <= turn_time){
 		timer_text.textContent = minute+":"+second
 		if(my_color == "black"){
 			timer_text.style.color = "rgb(221, 238, 224)"

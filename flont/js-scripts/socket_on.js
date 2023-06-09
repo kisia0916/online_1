@@ -1,17 +1,46 @@
 
 
+
 Socket.on("set_data",(data)=>{
     userId = data.userId
     Socket.emit("set_info",{userId:userId,p2pId:p2pId,name:user_name})
+    let url = location.pathname
+    let url_list = url.split("/")
+    console.log(url_list)
+    if(url_list[1] == "urljoin"){
+        console.log("lplplplplplplp")
+
+        console.log("lplplplplplplp")
+        Socket.emit("reqest_send_roomName",{id:url_list[2],userId:userId})
+    }
     
 })
-
+Socket.on("response_send_roomName",(data)=>{
+    room_name = data.room_name
+    let room_text = document.querySelector(".join_room_title_text")
+    room_text.textContent = room_name
+    console.log(data.room_name)
+})
 Socket.on("start_game",(data)=>{
+    console.log("start実行中")
     roomId = data.roomId
+    if(data.turn_time){
+        turn_time = data.turn_time
+        now_timer = turn_time
+        console.log(now_timer)
+
+    }else{
+        turn_time = 121
+        now_timer = turn_time
+        console.log(now_timer)
+
+    }
+    console.log(now_turn)
     p1 = data.p1
     p2 = data.p2
     black = data.black
     white = data.white
+    // now_timer = data.turn_time
     console.log("klklklklklklklklklklklklklklklklkl")
     console.log(data)
     connection_p2p(data.other_p2p_Id)
@@ -28,10 +57,12 @@ Socket.on("start_game",(data)=>{
         my_color = "white"
         console.log("white")
     }
+    black_name = data.black_name
+    white_name = data.white_name
     move("game")
     stage.map =data.stage
     now_turn = data.now_turn
-    now_timer = 121
+    // now_timer = 121
     start_timer("id")
     turn.n = now_turn
 
@@ -42,11 +73,27 @@ Socket.on("start_game",(data)=>{
     // checkPutSpace()
 })
 Socket.on("join_game_ser",(data)=>{
+    console.log("join実行中")
+
     roomId = data.roomId
+    if(data.turn_time){
+        turn_time = data.turn_time
+        now_timer = turn_time
+        console.log(now_timer)
+    }else{
+        turn_time = 121
+        now_timer = turn_time
+        console.log(now_timer)
+}
+    
+    console.log(now_turn)
+
     p1 = data.p1
     p2 = data.p2
     black = data.black
     white = data.white
+    // now_timer = data.turn_time
+
     console.log(data)
 
     connection_p2p(data.other_p2p_Id)
@@ -64,11 +111,15 @@ Socket.on("join_game_ser",(data)=>{
         my_color = "white"
         console.log("white")
     }
+    black_name = data.black_name
+    white_name = data.white_name
     move("game")
-    now_timer = 121
+    // now_timer = data.turn_time
+
     start_timer("id")
-    stage.map = data.stage
     now_turn = data.now_turn
+
+    stage.map = data.stage
     turn.n = now_turn
 
 
@@ -86,13 +137,14 @@ Socket.on("end_game",(data)=>{
     user_state = 0
     console.log("oooooooooooooooooooooooo")
     move("")
+    discon_p2p()
 }) 
 Socket.on("get_new_stage",(data)=>{
     console.log("ooooooooooooooooooooooo")
 
     timer_stop_flg = true
 
-    now_timer = 120
+    now_timer = turn_time
     timer_stop_flg = false
     stop_timer()
     start_timer()
@@ -104,13 +156,13 @@ Socket.on("get_new_stage",(data)=>{
     if(change_turn){
         if(text_color == "black"){
             timer_text.style.color = "rgb(221, 238, 224)"
-            timer_text.textContent = "2:00"
+            timer_text.textContent = "..."
             // timer_warpp.style.border = "solid 1px rgb(221, 238, 224)"
 
             text_color = "white"
         }else if(text_color == "white"){
             timer_text.style.color = "rgb(56, 56, 56)"
-            timer_text.textContent = "2:00"
+            timer_text.textContent = "..."
 
             // timer_warpp.style.border = "solid 1px rgb(56, 56, 56)"
 
@@ -250,14 +302,14 @@ Socket.on("send_private_id",(data)=>{
     console.log("ooooo")
     console.log(data.roomId)
     roomId = data.roomId
-    let id_space = document.querySelector(".RoomID")
-    let url_space = document.querySelector(".joinURL")
+    let id_space = document.querySelector(".joinID12")
+    let url_space = document.querySelector(".joinURL12")
     let button1 = document.querySelector(".room_copy1")
     let button2 = document.querySelector(".room_copy2")
     button1.id = roomId
     button2.id = domain+"/urljoin/"+roomId
-    url_space.textContent = domain+"/urljoin/"+roomId
-    id_space.textContent = roomId
+    url_space.value = domain+"/urljoin/"+roomId
+    id_space.value = roomId
 })
 Socket.on("no_room",(data)=>{
     alert("No Room")
@@ -274,4 +326,9 @@ Socket.on("test1",(data)=>{
 Socket.on("discon_p2p",(data)=>{
     conn = undefined
     console.log("切断しました")
+})
+Socket.on("return_send_name",(data)=>{
+    console.log("Kop")
+    let name_space = document.querySelector(".join_room_title_text")
+    name_space.textContent = data.name
 })

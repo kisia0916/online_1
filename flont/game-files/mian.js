@@ -15,12 +15,17 @@ let now_turn;
 let turn = {n:1}
 let my_color;
 let pass_counter;
+let black_name = ""
+let white_name = ""
+let turn_time = 0
 const game_start  = ()=>{
     canvas = document.querySelector(".canvas")
     ctx = canvas.getContext("2d")
-    let black_name = document.querySelector(".black_user_name")
-    let white_name = document.querySelector(".white_user_name")
     
+    let black_name_dom = document.querySelector(".black_user_name")
+    let white_name_dom = document.querySelector(".white_user_name")
+    black_name_dom.textContent = black_name
+    white_name_dom.textContent = white_name
     stage_width = 8
     stage_height = 8
 
