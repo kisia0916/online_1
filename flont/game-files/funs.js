@@ -212,6 +212,25 @@ const reverse_piece = (x,y)=>{
     console.log(sub_map)
     sub_map[y][x] = turn.n
     stage.map = sub_map
+    count_chips()
     send_stage()
     // turn_change()
+}
+const count_chips = ()=>{
+    let bl = 0
+    let wh = 0
+    for (let i = 0;8>i;i++){
+        for (let e = 0;8>e;e++){
+            if(stage.map[i][e] == 1){
+                bl+=1
+            }else if(stage.map[i][e] == 2){
+                wh +=1
+            }
+        }
+    }
+    let blco = document.querySelector(".block_num")
+    let whco = document.querySelector(".block_num2")
+    blco.textContent = bl
+    whco.textContent = wh
+    return [bl,wh]
 }

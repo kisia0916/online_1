@@ -18,7 +18,11 @@ let pass_counter;
 let black_name = ""
 let white_name = ""
 let turn_time = 0
+let game_end_Co = 0
+// let bl = 0
+// let wh = 0
 const game_start  = ()=>{
+    game_end_Co = 0
     canvas = document.querySelector(".canvas")
     ctx = canvas.getContext("2d")
     
@@ -28,6 +32,8 @@ const game_start  = ()=>{
     white_name_dom.textContent = white_name
     stage_width = 8
     stage_height = 8
+    // bl = 0
+    // wh = 0
 
     stage_space = 600/8
 
@@ -76,7 +82,14 @@ const game_start  = ()=>{
     console.log("test")
 
 }
-
+const win_write_12 = ()=>{
+    let warpp = document.querySelector(".first_name_warpp")
+    warpp.style.visibility = "visible"
+    warpp.classList.remove("first_fade_out")
+    warpp.innerHTML = game_dom_win_text()
+    warpp.classList.add("win_ani")
+    warpp.style.removeProperty("visibility")
+}
 
 const main_loop = ()=>{
     // console.log("kk")
@@ -84,5 +97,35 @@ const main_loop = ()=>{
     write_stage()
 
     writePiece()
-    window.requestAnimationFrame(main_loop);
+    if(game_end_Co == 0){
+        window.requestAnimationFrame(main_loop);
+    }
+    // let chipData = count_chips()
+    // if(chipData[0]+chipData[1] == 5 && game_end_Co == 0){
+    //     ctx.clearRect(0,0,600,600)
+    //     write_stage()
+    
+    //     writePiece()
+    //     game_end_Co = 1
+    //     win_write_12()
+    //     Socket.emit("end_game",{room:roomId})
+
+    //     // alert("end")
+    // }
 }
+
+// const init_game = ()=>{
+//     stage = {
+//         map:[]
+//     };
+//     stage_space;
+//     my_turn;
+//     now_turn;
+//     turn = {n:1}
+//     my_color;
+//     pass_counter;
+//     black_name = ""
+//     white_name = ""
+//     turn_time = 0
+//     game_end_Co = 0
+// }

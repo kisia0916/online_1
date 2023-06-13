@@ -4,8 +4,10 @@ const turn_change = ()=>{
     console.log(turn.n)
     if(turn.n == 1){
         turn.n = 2
+        // count_chips()
     }else{
         turn.n = 1
+        // count_chips()
     }
 }
 
@@ -348,7 +350,7 @@ const check_win = ()=>{
             }
         }
     }
-    if(black + white == stage_height*stage_width){
+    if(black + white == 5){
         end_flg = true
     }
     return [black,white,end_flg]

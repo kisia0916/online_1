@@ -80,7 +80,17 @@ body{
     }
     .fa-brands{
 
+        /* display: none; */
+        margin-top: 50px;
+    }
+
+}
+@media (max-height:650px)  {
+
+    .fa-brands{
+
         display: none;
+
     }
 
 }
@@ -163,14 +173,16 @@ body{
     text-align: center;
     margin: auto;
     margin-top: 60px;
+    display:flex;
 }
 .game_enter_button_text{
     color:rgb(221, 238, 224);;
-    font-size: 165%;
+    font-size: 175%;
     display: flex;
 
-    margin-left: 40px;
-    margin-top: 4%;
+    /* margin-left: 40px;
+    margin-top: 4%; */
+    margin: auto;
 
 
 

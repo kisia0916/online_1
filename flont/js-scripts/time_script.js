@@ -14,7 +14,7 @@ const start_timer = () => {
 		timer_stop_flg = false
 		let now_co = ""
 		timerid = setInterval(() => {
-			
+				if(now_timer >= 0){
 					if(turn.n == 1){
 						now_co = "black"
 					}else if(turn.n == 2){
@@ -38,6 +38,7 @@ const start_timer = () => {
 							timer_stop_flg = true
 						}
 					}
+				}
 		}, 1000);
 	
 };

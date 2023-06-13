@@ -22,6 +22,7 @@ Socket.on("response_send_roomName",(data)=>{
     console.log(data.room_name)
 })
 Socket.on("start_game",(data)=>{
+    game_con_co = false
     console.log("start実行中")
     roomId = data.roomId
     if(data.turn_time){
@@ -63,17 +64,18 @@ Socket.on("start_game",(data)=>{
     stage.map =data.stage
     now_turn = data.now_turn
     // now_timer = 121
-    start_timer("id")
+    // start_timer("id")
     turn.n = now_turn
 
 
-    game_start()
-    // start_timer()
-    main_loop()
+    // game_start()
+    // // start_timer()
+    // main_loop()
     // checkPutSpace()
 })
 Socket.on("join_game_ser",(data)=>{
     console.log("join実行中")
+    game_con_co = false
 
     roomId = data.roomId
     if(data.turn_time){
@@ -116,7 +118,7 @@ Socket.on("join_game_ser",(data)=>{
     move("game")
     // now_timer = data.turn_time
 
-    start_timer("id")
+    // start_timer("id")
     now_turn = data.now_turn
 
     stage.map = data.stage
@@ -125,9 +127,9 @@ Socket.on("join_game_ser",(data)=>{
 
 
 
-    game_start()
-    // start_timer()
-    main_loop()
+    // game_start()
+    // // start_timer()
+    // main_loop()
     // checkPutSpace()
 
 })
@@ -140,6 +142,7 @@ Socket.on("end_game",(data)=>{
     discon_p2p()
 }) 
 Socket.on("get_new_stage",(data)=>{
+    
     console.log("ooooooooooooooooooooooo")
 
     timer_stop_flg = true
@@ -199,7 +202,7 @@ Socket.on("get_new_stage",(data)=>{
 
         now_turn = data.now_turn
         turn.n = data.now_turn
-
+        count_chips()/////////////////////////
         console.log("lplplp")
         for(let i = 0;stage_height>i;i++){
             for(let s = 0;stage_width>s;s++){
@@ -208,6 +211,7 @@ Socket.on("get_new_stage",(data)=>{
                 }
             }
         }
+
         if(check_win()[2] == false){
             if(checkPutSpace() !=1){
                 if(pass_counter == 1){
@@ -222,10 +226,12 @@ Socket.on("get_new_stage",(data)=>{
                             mess = "あなたの負けです"
                         }
                     }
+                    game_con_co = 1
                     ctx.clearRect(0,0,600,600)
+
                     write_stage()
-                
                     writePiece()
+                    win_write_12()
                     console.log(stage.map)
 
                     // alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
@@ -235,8 +241,9 @@ Socket.on("get_new_stage",(data)=>{
 
 
                 }else{
-                    alert("パスｓ")
                     pass_counter +=1
+
+                    alert("パスｓ")
 
                     setPiece_pass()
                 }
@@ -258,10 +265,11 @@ Socket.on("get_new_stage",(data)=>{
                     mess = "あなたの負けです"
                 }
             }
+            game_end_Co = 1
             ctx.clearRect(0,0,600,600)
             write_stage()
-        
             writePiece()
+            win_write_12()
         // console.log(stage.map)
 
         //     alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
@@ -271,7 +279,23 @@ Socket.on("get_new_stage",(data)=>{
 
 }
 })
-
+Socket.on("completion_preparation_on",(data)=>{
+    console.log(data)
+    let prepar_screen = document.querySelector(".first_name_warpp")
+    prepar_screen.classList.add("first_fade_out")
+    let anime = document.querySelector(".first_fade_out")
+    anime.addEventListener("animationend",()=>{
+        // prepar_screen.style.visibility= "hidden";
+        let first_warpp_main = document.querySelector(".first_screen_main")
+        first_warpp_main.remove()
+    })
+    start_timer("id")
+    game_start()
+    main_loop()
+})
+Socket.on("other_preparation_on",(data)=>{
+    
+})
 Socket.on("end_room",(data)=>{
     ctx.clearRect(0,0,600,600)
     write_stage()
@@ -288,14 +312,17 @@ Socket.on("end_room",(data)=>{
                 mess = "あなたの負けです"
             }
         }
-    //     ctx.clearRect(0,0,600,600)
-    //     write_stage()
-    
-    //     writePiece()
+
+        // init_game()
+        game_end_Co = 1
+        ctx.clearRect(0,0,600,600)
+        write_stage()
+        writePiece()
+        win_write_12()
     //     console.log(stage.map)
 
     // alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
-    user_state = 0
+    // user_state = 0
     // move("")
 })
 Socket.on("send_private_id",(data)=>{

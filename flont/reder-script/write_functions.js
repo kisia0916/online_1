@@ -2,7 +2,7 @@
 
 const write_game_page = ()=>{
     let space = document.querySelector(".main_space")
-    space.innerHTML = game_dom()
+    space.innerHTML = game_dom(black_name,white_name)
 }
 const write_title_page = ()=>{
     let space = document.querySelector(".main_space")

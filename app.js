@@ -41,6 +41,7 @@ let games = []
 let players = []
 let wait_rooms = []
 let user_info = []
+let game_prepar_list = []
 io.on("connection",(socket)=>{
     console.log("ff")
     let userId = uuid.v4()
@@ -236,7 +237,7 @@ io.on("connection",(socket)=>{
         socket.leave(data.room)
         console.log("!o")
         io.to(joinRoomList[0].room).emit("discon_p2p",{})
-
+        
         io.to(data.room).emit("end_room","end")
 
         // console.log(joinRoomList)
@@ -409,6 +410,19 @@ io.on("connection",(socket)=>{
         
         }
     })
+    socket.on("completion_preparation_emit",(data)=>{
+        if(game_prepar_list.indexOf(data.roomId) != -1){
+            io.to(data.roomId).emit("completion_preparation_on",{})
+            game_prepar_list.splice(game_prepar_list.indexOf(data.roomId),1)
+            console.log(game_prepar_list)
+            
+        }else{
+            console.log("保留")
+            game_prepar_list.push(data.roomId)
+            io.to(data.roomId).emit("other_preparation_on",{})
+
+        }
+    })
     socket.on("discon_match",(data)=>{
         if(wait_match.indexOf(data.userId) != -1){
             wait_match.splice(wait_match.indexOf(data.userId),1)
@@ -431,6 +445,7 @@ io.on("connection",(socket)=>{
     socket.on("discon_p2p_socket",(data)=>{
         io.to(data.userId).emit("discon_p2p",{})
     })
+
     socket.on("disconnect",()=>{
 
         console.log("koko")

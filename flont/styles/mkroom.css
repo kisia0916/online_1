@@ -42,9 +42,9 @@ body{
         /* display: flex; */
         margin: auto;
         position: relative;
-        top: 50%;
+        top: 55%;
         -webkit-transform : translateY(-50%);
-        transform : translateY(-65%);
+        transform : translateY(-70%);
         /* background-color: antiquewhite; */
 
     }
@@ -180,6 +180,7 @@ body{
     display: flex;
     margin: auto;
     margin-top: 9px;
+    margin-bottom: 6px;
     
 }
 .host_name_input{

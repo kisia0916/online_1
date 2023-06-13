@@ -150,3 +150,20 @@ const discon_p2p_sokcet = (userId)=>{
     Socket.emit("discon_p2p_socket",{userId:userId})
     conn = undefined
 }
+let game_con_co = false
+const send_completion_preparation = ()=>{
+    if(!game_con_co){
+        console.log(roomId,"Unnko")
+        game_con_co = true
+        Socket.emit("completion_preparation_emit",{roomId:roomId,userId:userId})
+        let ok_button = document.querySelector(".first_button_warpp")
+        let wait_username = ""
+        if(my_color == "black"){
+            wait_username = white_name
+        }else if(my_color == "white"){
+            wait_username = black_name
+        }
+        ok_button.innerHTML = game_dom_con_text(wait_username)
+    }
+    
+}
