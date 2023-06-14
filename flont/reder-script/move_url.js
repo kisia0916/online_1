@@ -13,3 +13,8 @@ const move_back = (url,next_state)=>{
     history.replaceState('','',`/${url}`);
     analysis_url()
 }
+const back_mode = ()=>{
+    move_back("modeselect",0.5)
+    init_game()
+
+}

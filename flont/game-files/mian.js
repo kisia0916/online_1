@@ -131,18 +131,18 @@ const main_loop = ()=>{
     // }
 }
 
-// const init_game = ()=>{
-//     stage = {
-//         map:[]
-//     };
-//     stage_space;
-//     my_turn;
-//     now_turn;
-//     turn = {n:1}
-//     my_color;
-//     pass_counter;
-//     black_name = ""
-//     white_name = ""
-//     turn_time = 0
-//     game_end_Co = 0
-// }
+const init_game = ()=>{
+    stage = {
+        map:[]
+    };
+    stage_space;
+    my_turn;
+    now_turn;
+    turn = {n:1}
+    my_color;
+    pass_counter;
+    black_name = ""
+    white_name = ""
+    turn_time = 0
+    game_end_Co = 0
+}

@@ -99,8 +99,8 @@ const game_dom_win_text = (black,white)=>{
             </div>
         </div>
     </div>
-    <div class="game_back_button">
-        <span class="game_back_button_text">Home</span>
+    <div class="game_back_button" onclick="back_mode()">
+        <span class="game_back_button_text" >Home</span>
     </div>
 </div>
     `
@@ -127,7 +127,7 @@ const game_dom_lose_text = (black,white)=>{
         </div>
     </div>
     <div class="game_back_button">
-        <span class="game_back_button_text">Home</span>
+        <span class="game_back_button_text" onclick="back_mode()">Home</span>
     </div>
 </div>
     `
