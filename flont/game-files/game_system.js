@@ -350,7 +350,7 @@ const check_win = ()=>{
             }
         }
     }
-    if(black + white == 5){
+    if(black + white == 64){
         end_flg = true
     }
     return [black,white,end_flg]

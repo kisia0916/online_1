@@ -82,11 +82,28 @@ const game_start  = ()=>{
     console.log("test")
 
 }
-const win_write_12 = ()=>{
+function sleep(waitMsec) {
+    let startMsec = new Date();
+   
+    // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
+    while (new Date() - startMsec < waitMsec);
+  }
+const win_write_12 = (black,white)=>{
+    sleep(1.5)
     let warpp = document.querySelector(".first_name_warpp")
     warpp.style.visibility = "visible"
     warpp.classList.remove("first_fade_out")
-    warpp.innerHTML = game_dom_win_text()
+    warpp.innerHTML = game_dom_win_text(black,white)
+    warpp.classList.add("win_ani")
+    warpp.style.removeProperty("visibility")
+}
+const lose_write_12 = (black,white)=>{
+    sleep(1.5)
+
+    let warpp = document.querySelector(".first_name_warpp")
+    warpp.style.visibility = "visible"
+    warpp.classList.remove("first_fade_out")
+    warpp.innerHTML = game_dom_lose_text(black,white)
     warpp.classList.add("win_ani")
     warpp.style.removeProperty("visibility")
 }

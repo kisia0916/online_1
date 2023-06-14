@@ -79,7 +79,7 @@ const game_dom_con_text = (other_name)=>{
     `
     return html
 }
-const game_dom_win_text = ()=>{
+const game_dom_win_text = (black,white)=>{
     let html = `
     <div class="first_screen_main2">
     <div class="resolt_data">
@@ -90,11 +90,38 @@ const game_dom_win_text = ()=>{
             <div class="first_box_center">
                 <div class="first_re_black_space">
                     <div class="resolt_black_chip"></div>
-                    <span class="resolt_black_num">32</span>
+                    <span class="resolt_black_num">${black}</span>
                 </div>
                 <div class="first_re_white_space">
                     <div class="resolt_white_chip"></div>
-                    <span class="resolt_white_num">32</span>
+                    <span class="resolt_white_num">${white}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="game_back_button">
+        <span class="game_back_button_text">Home</span>
+    </div>
+</div>
+    `
+    return html
+}
+const game_dom_lose_text = (black,white)=>{
+    let html = `
+    <div class="first_screen_main2">
+    <div class="resolt_data">
+        <span class="resolt_data_text lose">You lose</span>
+    </div>
+    <div class="first_box_warpp">
+        <div class="first_box">
+            <div class="first_box_center">
+                <div class="first_re_black_space">
+                    <div class="resolt_black_chip"></div>
+                    <span class="resolt_black_num">${black}</span>
+                </div>
+                <div class="first_re_white_space">
+                    <div class="resolt_white_chip"></div>
+                    <span class="resolt_white_num">${white}</span>
                 </div>
             </div>
         </div>

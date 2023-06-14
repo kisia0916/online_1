@@ -217,21 +217,35 @@ Socket.on("get_new_stage",(data)=>{
                 if(pass_counter == 1){
 
                     Socket.emit("end_game",{room:roomId})
+                    discon_p2p()
+                    stop_timer()
                     let end_stage = check_win()
                     let mess = ""
-                    if(end_stage[0] > end_stage[1]){
-                        if(my_color == "black"){
-                            mess = "あなたの勝ちです"
-                        }else{
-                            mess = "あなたの負けです"
-                        }
-                    }
+
                     game_con_co = 1
                     ctx.clearRect(0,0,600,600)
 
                     write_stage()
                     writePiece()
-                    win_write_12()
+                    if(end_stage[0] > end_stage[1]){
+                        if(my_color == "black"){
+                            mess = "あなたの勝ちです"
+                            win_write_12(end_stage[0],end_stage[1])
+
+                        }else{
+                            mess = "あなたの負けです"
+                            lose_write_12(end_stage[0],end_stage[1])
+                        }
+                    }else if(end_stage[0]< end_stage[1]){
+                        if(my_color == "white"){
+                            mess = "あなたの勝ちです"
+                            win_write_12(end_stage[0],end_stage[1])
+
+                        }else{
+                            mess = "あなたの負けです"
+                            lose_write_12(end_stage[0],end_stage[1])
+                        }
+                    }
                     console.log(stage.map)
 
                     // alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
@@ -255,21 +269,35 @@ Socket.on("get_new_stage",(data)=>{
         }else{
 
             Socket.emit("end_game",{room:roomId})
+            discon_p2p()
+            stop_timer()
             let end_stage = check_win()
             let mess = ""
 
-            if(end_stage[0] > end_stage[1]){
-                if(my_color == "black"){
-                    mess = "あなたの勝ちです"
-                }else{
-                    mess = "あなたの負けです"
-                }
-            }
+
             game_end_Co = 1
             ctx.clearRect(0,0,600,600)
             write_stage()
             writePiece()
-            win_write_12()
+            if(end_stage[0] > end_stage[1]){
+                if(my_color == "black"){
+                    mess = "あなたの勝ちです"
+                    win_write_12(end_stage[0],end_stage[1])
+
+                }else{
+                    mess = "あなたの負けです"
+                    lose_write_12(end_stage[0],end_stage[1])
+                }
+            }else if(end_stage[0]< end_stage[1]){
+                if(my_color == "white"){
+                    mess = "あなたの勝ちです"
+                    win_write_12(end_stage[0],end_stage[1])
+
+                }else{
+                    mess = "あなたの負けです"
+                    lose_write_12(end_stage[0],end_stage[1])
+                }
+            }
         // console.log(stage.map)
 
         //     alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
@@ -297,28 +325,40 @@ Socket.on("other_preparation_on",(data)=>{
     
 })
 Socket.on("end_room",(data)=>{
-    ctx.clearRect(0,0,600,600)
-    write_stage()
 
-    writePiece()
         Socket.emit("end_game",{room:roomId})
         Socket.emit("delete_cons",{room:roomId})
+        discon_p2p()
+        stop_timer()
         let end_stage = check_win()
         let mess = ""
-        if(end_stage[0] > end_stage[1]){
-            if(my_color == "black"){
-                mess = "あなたの勝ちです"
-            }else{
-                mess = "あなたの負けです"
-            }
-        }
+
 
         // init_game()
         game_end_Co = 1
         ctx.clearRect(0,0,600,600)
         write_stage()
         writePiece()
-        win_write_12()
+        if(end_stage[0] > end_stage[1]){
+            if(my_color == "black"){
+                mess = "あなたの勝ちです"
+                //////////////////////////////////////////////////たまに勝利判定がされない時があるかも
+                win_write_12(end_stage[0],end_stage[1])
+
+            }else{
+                mess = "あなたの負けです"
+                lose_write_12(end_stage[0],end_stage[1])
+            }
+        }else if(end_stage[0]< end_stage[1]){
+            if(my_color == "white"){
+                mess = "あなたの勝ちです"
+                win_write_12(end_stage[0],end_stage[1])
+
+            }else{
+                mess = "あなたの負けです"
+                lose_write_12(end_stage[0],end_stage[1])
+            }
+        }
     //     console.log(stage.map)
 
     // alert(`ゲーム終了\n${mess}\nblack:${end_stage[0]} white:${end_stage[1]}`)
@@ -329,6 +369,7 @@ Socket.on("send_private_id",(data)=>{
     console.log("ooooo")
     console.log(data.roomId)
     roomId = data.roomId
+    let domain = "localhost:3000"
     let id_space = document.querySelector(".joinID12")
     let url_space = document.querySelector(".joinURL12")
     let button1 = document.querySelector(".room_copy1")

@@ -234,10 +234,11 @@ io.on("connection",(socket)=>{
     })
     socket.on("end_game",(data)=>{
         joinRoomList[0].room = ""
-        socket.leave(data.room)
         console.log("!o")
+        socket.leave(data.room)
+
         io.to(joinRoomList[0].room).emit("discon_p2p",{})
-        
+
         io.to(data.room).emit("end_room","end")
 
         // console.log(joinRoomList)

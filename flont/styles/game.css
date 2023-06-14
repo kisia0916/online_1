@@ -495,17 +495,26 @@ body{
 }
 .resolt_white_num{
     color: rgb(221, 238, 224);
-    color: rgb(231, 243, 234);
+    color: rgb(255, 255, 255);
     margin: auto;
 
 
 }
 .win{
     color: rgb(230, 251, 95);
-
+    text-shadow:
+    1px 1px 0px #515151, -1px -1px 0px #515151,
+   -1px 1px 0px #515151,  1px -1px 0px #515151,
+    1px 0px 0px #515151, -1px -0px 0px #515151,
+    0px 1px 0px #515151,  0px -1px 0px #515151;
 }
 .lose{
     color: rgb(19, 60, 173);
+    text-shadow:
+    1px 1px 0px #40b0e4, -1px -1px 0px #40b0e4,
+   -1px 1px 0px #40b0e4,  1px -1px 0px #40b0e4,
+    1px 0px 0px #40b0e4, -1px -0px 0px #40b0e4,
+    0px 1px 0px #40b0e4,  0px -1px 0px #40b0e4;
 
 
 }
