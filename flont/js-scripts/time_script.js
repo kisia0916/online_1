@@ -15,6 +15,7 @@ const start_timer = () => {
 		let now_co = ""
 		timerid = setInterval(() => {
 				if(now_timer >= 0){
+					
 					if(turn.n == 1){
 						now_co = "black"
 					}else if(turn.n == 2){
@@ -38,7 +39,20 @@ const start_timer = () => {
 							timer_stop_flg = true
 						}
 					}
+					if(now_timer == 0){
+						send_p2pTimer()
+						Socket.emit("end_game",{room:roomId})
+						discon_p2p()
+						stop_timer()
+						let end_stage = check_win()
+						let mess = ""
+						game_con_Co = 1
+						lose_write_12(end_stage[0],end_stage[1])
+	
+					}
+
 				}
+
 		}, 1000);
 	
 };
@@ -66,6 +80,15 @@ const timer_update = (time)=>{
 			timer_text.style.color = "rgb(56, 56, 56)"
 
 		}
+	}
+	if(time == 0){
+		discon_p2p()
+		stop_timer()
+		let end_stage = check_win()
+		let mess = ""
+		game_con_Co = 1
+		win_write_12(end_stage[0],end_stage[1])
+
 	}
 }
 // start_timer('id');
