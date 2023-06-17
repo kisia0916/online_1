@@ -123,24 +123,7 @@ const join_room = ()=>{
     let data = data1.value
     console.log("ppppppppppppp")
     if(data){
-        if(data.length>=3 && data.length<=8){
-            data = data.replace(/[&'`"<>]/g, function(match) {
-                return {
-                '&': '&amp;',
-                "'": '&#x27;',
-                '`': '&#x60;',
-                '"': '&quot;',
-                '<': '&lt;',
-                '>': '&gt;',
-                }[match]
-            });
-            Socket.emit("join_room",{roomId:data,userId:userId,name:name})
-        }else{
-            data1.value = ""
-            data1.style.backgroundColor = "rgba(251,143,143,0.79)"
-            data1.style.border = "2px soild rgba(91,91,91,0.79)"
-            data1.placeholder = "ユーザー名は3文字以上8文字以下にしてください"
-        }
+        Socket.emit("join_room",{roomId:data,userId:userId,name:user_name})
     }else{
         data1.style.backgroundColor = "rgba(251,143,143,0.79)"
         data1.style.border = "2px soild rgba(91,91,91,0.79)"
