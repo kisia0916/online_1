@@ -17,7 +17,7 @@ const mkroom_dom = ()=>{
     <div class="mkroom_center3">
         <div class="Host_name4">
             <div class="Host_name_title_warpp">
-                <span class="host_name_text">Host Name</span>
+                <span class="host_name_text">Room Name</span>
             </div>
             <input type="text" class="host_name_input">
         </div>
