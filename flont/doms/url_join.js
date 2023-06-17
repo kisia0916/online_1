@@ -15,6 +15,7 @@ const url_join_dom = (id,room_name)=>{
             <div class="Host_name_title_warpp">
                 <span class="join_room_text">You are invited</span>
 
+                
             </div>
             <div class="url_join_warpp">
                 <div class="urlJoinNameTop">
