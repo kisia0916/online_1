@@ -1,1 +1,171 @@
-(function(_0x37f618,_0x3e1896){const _0x21df84=_0x2a7e,_0x54a37b=_0x37f618();while(!![]){try{const _0x3d49f8=-parseInt(_0x21df84(0xf7))/0x1+-parseInt(_0x21df84(0xec))/0x2+-parseInt(_0x21df84(0xf3))/0x3*(-parseInt(_0x21df84(0x11e))/0x4)+-parseInt(_0x21df84(0x114))/0x5+-parseInt(_0x21df84(0xed))/0x6*(parseInt(_0x21df84(0x11a))/0x7)+-parseInt(_0x21df84(0x11c))/0x8*(parseInt(_0x21df84(0x10d))/0x9)+-parseInt(_0x21df84(0xfb))/0xa*(-parseInt(_0x21df84(0xf1))/0xb);if(_0x3d49f8===_0x3e1896)break;else _0x54a37b['push'](_0x54a37b['shift']());}catch(_0x36b098){_0x54a37b['push'](_0x54a37b['shift']());}}}(_0x3ba6,0x187d8));const start_matching=()=>{const _0xf9daf1=_0x2a7e;console[_0xf9daf1(0xf6)](user_state),user_state!=0x1&&(console['log'](_0xf9daf1(0x102)),user_state=0x1,move('waitmatch'),console[_0xf9daf1(0xf6)](p2pId),Socket['emit'](_0xf9daf1(0x10e),{'userId':userId,'p2pId':p2pId}));},send_stage=()=>{const _0x4a50e9=_0x2a7e;console[_0x4a50e9(0xf6)]('00000000000000000000'),user_state==0x2&&Socket[_0x4a50e9(0xf0)](_0x4a50e9(0x111),{'stage':stage[_0x4a50e9(0xfe)],'roomId':roomId,'send_user':userId,'now_turn':now_turn,'pass_counter':pass_counter});},mk_room=()=>{const _0x56bd6b=_0x2a7e;user_state=3.5;let _0x2ee599=document[_0x56bd6b(0xfa)]('.host_name_input'),_0x50ca3f=document[_0x56bd6b(0xfa)](_0x56bd6b(0xef)),_0x46bb1c=document[_0x56bd6b(0xfa)](_0x56bd6b(0x10b)),_0x4529e3=document[_0x56bd6b(0xfa)](_0x56bd6b(0xfd)),_0x281b8c=_0x2ee599['value'],_0x636e8a=_0x50ca3f[_0x56bd6b(0x109)],_0x38e03b=_0x46bb1c['value'],_0x5cfac7=_0x4529e3[_0x56bd6b(0x109)];if(_0x281b8c){let _0x3aa29d=0x0;_0x636e8a=='0'&&(_0x3aa29d+=0x1);_0x38e03b=='00'&&(_0x38e03b=0x0,_0x3aa29d+=0x1);if(_0x3aa29d<0x2){let _0x3a80e1=Number(_0x636e8a)*0x3c+Number(_0x38e03b);console['log'](_0x3a80e1),console['log'](_0x281b8c),Socket[_0x56bd6b(0xf0)](_0x56bd6b(0x107),{'userId':userId,'name':user_name,'room_name':_0x281b8c,'turn_time':_0x3a80e1,'color':_0x5cfac7}),move(_0x56bd6b(0xff));}else _0x50ca3f[_0x56bd6b(0xf8)][_0x56bd6b(0x105)]=_0x56bd6b(0x106),_0x50ca3f[_0x56bd6b(0xf8)][_0x56bd6b(0x119)]=_0x56bd6b(0xeb),_0x46bb1c['style'][_0x56bd6b(0x105)]=_0x56bd6b(0x106),_0x46bb1c[_0x56bd6b(0xf8)][_0x56bd6b(0x119)]=_0x56bd6b(0xeb);}else!_0x281b8c&&(_0x2ee599['style'][_0x56bd6b(0x105)]='rgba(251,143,143,0.79)',_0x2ee599[_0x56bd6b(0xf8)]['border']='2px\x20soild\x20rgba(91,91,91,0.79)');},join_page=()=>{const _0x5c9b35=_0x2a7e;user_state=0x4,move(_0x5c9b35(0xf4));},mk_room_setting=()=>{const _0x399a2d=_0x2a7e;user_state=0x3,move(_0x399a2d(0x116));},offline_page=()=>{const _0x2f75c7=_0x2a7e;user_state=0x5,move(_0x2f75c7(0xfc));},mode_page=()=>{const _0x26ada4=_0x2a7e;user_state=0.5;let _0x2f0f37=document[_0x26ada4(0xfa)]('.setUserName');user_name=_0x2f0f37[_0x26ada4(0x109)],user_name?(user_name=user_name[_0x26ada4(0x11d)](/[&'`"<>]/g,function(_0x182c7f){const _0x2f2ab7=_0x26ada4;return{'&':_0x2f2ab7(0x10c),'\x27':'&#x27;','`':_0x2f2ab7(0x100),'\x22':_0x2f2ab7(0x110),'<':_0x2f2ab7(0x103),'>':_0x2f2ab7(0x108)}[_0x182c7f];}),move(_0x26ada4(0x101))):(_0x2f0f37[_0x26ada4(0xf8)][_0x26ada4(0x105)]='rgba(251,143,143,0.79)',_0x2f0f37['style'][_0x26ada4(0x119)]=_0x26ada4(0xeb));},join_room=()=>{const _0xbb58c5=_0x2a7e;let _0x4855ed=document[_0xbb58c5(0xfa)](_0xbb58c5(0x104)),_0x4c52f0=_0x4855ed[_0xbb58c5(0x109)];console[_0xbb58c5(0xf6)](_0xbb58c5(0x113)),_0x4c52f0?(_0x4c52f0=_0x4c52f0['replace'](/[&'`"<>]/g,function(_0xc8e99f){const _0x193762=_0xbb58c5;return{'&':'&amp;','\x27':_0x193762(0xf2),'`':_0x193762(0x100),'\x22':_0x193762(0x110),'<':'&lt;','>':_0x193762(0x108)}[_0xc8e99f];}),Socket['emit']('join_room',{'roomId':_0x4c52f0,'userId':userId,'name':name})):(_0x4855ed['style'][_0xbb58c5(0x105)]=_0xbb58c5(0x106),_0x4855ed['style'][_0xbb58c5(0x119)]=_0xbb58c5(0xeb));},join_room_url=_0x2ace2b=>{const _0xc22805=_0x2a7e;let _0x4aff81=document[_0xc22805(0xfa)](_0xc22805(0x118)),_0x54702b=_0x4aff81[_0xc22805(0x109)];_0x54702b?(_0x54702b=_0x54702b[_0xc22805(0x11d)](/[&'`"<>]/g,function(_0xc62ad2){const _0x3820d9=_0xc22805;return{'&':_0x3820d9(0x10c),'\x27':_0x3820d9(0xf2),'`':_0x3820d9(0x100),'\x22':_0x3820d9(0x110),'<':'&lt;','>':_0x3820d9(0x108)}[_0xc62ad2];}),user_name=_0x54702b,Socket[_0xc22805(0xf0)](_0xc22805(0x10f),{'roomId':_0x2ace2b,'userId':userId,'name':_0x54702b})):(_0x4aff81[_0xc22805(0xf8)][_0xc22805(0x105)]=_0xc22805(0x106),_0x4aff81['style'][_0xc22805(0x119)]=_0xc22805(0xeb));},discon_watch=_0x52e454=>{const _0x3c3d51=_0x2a7e;Socket[_0x3c3d51(0xf0)]('discon_match',{'userId':userId}),user_state=_0x52e454;},remove_private_match=_0x2d1153=>{const _0xbde261=_0x2a7e;Socket[_0xbde261(0xf0)](_0xbde261(0x112),{'roomId':_0x2d1153});},remove_online_match=()=>{},discon_p2p_sokcet=_0x348469=>{const _0x4c14d8=_0x2a7e;Socket[_0x4c14d8(0xf0)](_0x4c14d8(0xf5),{'userId':_0x348469}),conn=undefined;};let game_con_co=![];const send_completion_preparation=()=>{const _0x21dd63=_0x2a7e;if(!game_con_co){console[_0x21dd63(0xf6)](roomId,_0x21dd63(0x115)),game_con_co=!![],Socket[_0x21dd63(0xf0)](_0x21dd63(0xf9),{'roomId':roomId,'userId':userId});let _0x9f990a=document[_0x21dd63(0xfa)](_0x21dd63(0x10a)),_0x1b386f='';if(my_color==_0x21dd63(0x117))_0x1b386f=white_name;else my_color==_0x21dd63(0xee)&&(_0x1b386f=black_name);_0x9f990a[_0x21dd63(0x11b)]=game_dom_con_text(_0x1b386f);}};function _0x2a7e(_0x40c780,_0x43ca29){const _0x3ba631=_0x3ba6();return _0x2a7e=function(_0x2a7e4f,_0x10e4b3){_0x2a7e4f=_0x2a7e4f-0xeb;let _0x5e5b85=_0x3ba631[_0x2a7e4f];return _0x5e5b85;},_0x2a7e(_0x40c780,_0x43ca29);}function _0x3ba6(){const _0x2089be=['76318kWfjSn','&#x27;','2466YeQsRd','join','discon_p2p_socket','log','17256wUeaUu','style','completion_preparation_emit','querySelector','980cxAzXk','offline','.color_select3','map','privateroom','&#x60;','modeselect','test','&lt;','.join_room_input','backgroundColor','rgba(251,143,143,0.79)','mkroom_emit','&gt;','value','.first_button_warpp','.time_select2','&amp;','1211148iBsRli','join_matching','join_room','&quot;','send_stage','remove_private_match','ppppppppppppp','857025PcBoTx','Unnko','mkroom','black','.urlJoinInput','border','21rkXUmy','innerHTML','8NXTZtj','replace','40XPbwFZ','2px\x20soild\x20rgba(91,91,91,0.79)','225382oexwFd','303816FYzYpr','white','.time_select','emit'];_0x3ba6=function(){return _0x2089be;};return _0x3ba6();}
+/////////////////////////////////////タイマーの色のバグがある
+
+
+
+const start_matching = ()=>{
+    console.log(user_state)
+    if(user_state != 1){
+        console.log("test")
+        user_state = 1
+        move("waitmatch")
+        console.log(p2pId)
+        Socket.emit("join_matching",{userId:userId,p2pId:p2pId})
+    }
+}
+const send_stage = ()=>{
+    console.log("00000000000000000000")
+    if(user_state == 2){
+        Socket.emit("send_stage",{stage:stage.map,roomId:roomId,send_user:userId,now_turn:now_turn,pass_counter:pass_counter})
+    }
+}
+
+const mk_room = ()=>{
+    user_state = 3.5
+    let roomNameDom = document.querySelector(".host_name_input")
+    let turn_timer1Dom = document.querySelector(".time_select")
+    let turn_timer2Dom = document.querySelector(".time_select2")
+    let color_selectDom = document.querySelector(".color_select3")
+
+    let roomName = roomNameDom.value
+    let turn_timer1 = turn_timer1Dom.value
+    let turn_timer2 = turn_timer2Dom.value
+    let color_select = color_selectDom.value
+    if(roomName){
+        let co = 0
+        if(turn_timer1 == "0"){
+            co+=1
+        }
+        if(turn_timer2 == "00"){
+            turn_timer2 = 0
+            co+=1
+
+        }
+        if(co < 2){
+            let time = Number(turn_timer1)*60+Number(turn_timer2)
+            console.log(time)
+
+            console.log(roomName)
+            Socket.emit("mkroom_emit",{userId:userId,name:user_name,room_name:roomName,turn_time:time,color:color_select})
+            move("privateroom")
+        }else{
+            turn_timer1Dom.style.backgroundColor = "rgba(251,143,143,0.79)"
+            turn_timer1Dom.style.border = "2px soild rgba(91,91,91,0.79)"
+            turn_timer2Dom.style.backgroundColor = "rgba(251,143,143,0.79)"
+            turn_timer2Dom.style.border = "2px soild rgba(91,91,91,0.79)"
+        }
+    }else if(!roomName){
+        roomNameDom.style.backgroundColor = "rgba(251,143,143,0.79)"
+        roomNameDom.style.border = "2px soild rgba(91,91,91,0.79)"
+    }
+}
+const join_page = ()=>{
+    user_state = 4
+
+    move("join")
+}
+const mk_room_setting = ()=>{
+    user_state = 3
+    move("mkroom")
+}
+const offline_page = ()=>{
+    user_state = 5
+    move("offline")
+}
+const mode_page = ()=>{
+    user_state = 0.5
+    let input = document.querySelector(".setUserName")
+    user_name = input.value
+
+    if(user_name){
+        user_name = user_name.replace(/[&'`"<>]/g, function(match) {
+            return {
+              '&': '&amp;',
+              "'": '&#x27;',
+              '`': '&#x60;',
+              '"': '&quot;',
+              '<': '&lt;',
+              '>': '&gt;',
+            }[match]
+          });
+        move("modeselect")
+    }else{
+        input.style.backgroundColor = "rgba(251,143,143,0.79)"
+        input.style.border = "2px soild rgba(91,91,91,0.79)"
+    }
+}
+
+const join_room = ()=>{
+    let data1 = document.querySelector(".join_room_input")
+    let data = data1.value
+    console.log("ppppppppppppp")
+    if(data){
+        data = data.replace(/[&'`"<>]/g, function(match) {
+            return {
+              '&': '&amp;',
+              "'": '&#x27;',
+              '`': '&#x60;',
+              '"': '&quot;',
+              '<': '&lt;',
+              '>': '&gt;',
+            }[match]
+          });
+        Socket.emit("join_room",{roomId:data,userId:userId,name:name})
+    }else{
+        data1.style.backgroundColor = "rgba(251,143,143,0.79)"
+        data1.style.border = "2px soild rgba(91,91,91,0.79)"
+    }
+}
+const join_room_url = (id)=>{
+    let data1 = document.querySelector(".urlJoinInput")
+    let name = data1.value
+
+    if(name){
+        name = name.replace(/[&'`"<>]/g, function(match) {
+            return {
+              '&': '&amp;',
+              "'": '&#x27;',
+              '`': '&#x60;',
+              '"': '&quot;',
+              '<': '&lt;',
+              '>': '&gt;',
+            }[match]
+          });
+          user_name = name
+          Socket.emit("set_info_name",{user_name:user_name,userId:userId})
+        Socket.emit("join_room",{roomId:id,userId:userId,name:name})
+    }else{
+        data1.style.backgroundColor = "rgba(251,143,143,0.79)"
+        data1.style.border = "2px soild rgba(91,91,91,0.79)"
+    }
+}
+const discon_watch = (next_state)=>{
+    Socket.emit("discon_match",{userId:userId})
+    user_state = next_state
+}
+const remove_private_match = (roomId)=>{
+    Socket.emit("remove_private_match",{roomId:roomId})
+}
+const remove_online_match = () =>{
+    
+}
+const discon_p2p_sokcet = (userId)=>{
+    Socket.emit("discon_p2p_socket",{userId:userId})
+    conn = undefined
+}
+let game_con_co = false
+const send_completion_preparation = ()=>{
+    if(!game_con_co){
+        console.log(roomId,"Unnko")
+        game_con_co = true
+        Socket.emit("completion_preparation_emit",{roomId:roomId,userId:userId})
+        let ok_button = document.querySelector(".first_button_warpp")
+        let wait_username = ""
+        if(my_color == "black"){
+            wait_username = white_name
+        }else if(my_color == "white"){
+            wait_username = black_name
+        }
+        ok_button.innerHTML = game_dom_con_text(wait_username)
+    }
+    
+}

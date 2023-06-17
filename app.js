@@ -70,7 +70,15 @@ io.on("connection",(socket)=>{
         p2pId = data.p2pId
         user_name = data.name
     })
+    socket.on("set_info_name",(data)=>{
+        for (let i = 0;user_info.length>i;i++){
+            if(user_info[i].userId == data.userId){
+                user_info[i].name = data.user_name
+            }
+        }
+    })
     socket.on("join_matching",(data)=>{
+        console.log(user_info)
         if(wait_match.indexOf(userId) == -1){
             // console.log(userId)
             wait_match.push(userId)
