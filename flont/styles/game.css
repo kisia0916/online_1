@@ -308,6 +308,9 @@ body{
     width: 100%;
     color: rgb(40, 116, 106);
 }
+.first_join_button:hover{
+    background-color: rgba(176, 192, 199, 0.504);
+}
 .first_join_button{
     display: flex;
     width: 115px;
@@ -318,6 +321,7 @@ body{
     margin: auto;
     border: solid 1px white;
     margin-top: 40px;
+    cursor: pointer;
 }
 .first_join_button_text{
     color: rgb(245, 245, 245);
@@ -471,6 +475,57 @@ body{
 
     }
 }
+@media (min-width:541px){
+    .first_box{
+        max-width:350px;
+        /* max-width: 278px !important; */
+        min-width: 278px;
+        width: 70%;
+        height: 160px;
+        margin:auto;
+        background-color: rgba(175, 202, 208, 0.76);
+        border: solid 2px rgb(209, 222, 227);
+        display: flex;
+        border-radius: 15px;
+
+    }
+    .first_box{
+        font-size: 270%;
+        display: flex;
+    }
+    .resolt_black_chip{
+        width: 55px;
+        height: 55px;
+        border-radius: 50px;
+        /* margin-top: 2%; */
+        margin: auto;
+        margin-right: 9px;
+   
+
+
+    }
+    .resolt_white_chip{
+        width: 55px;
+        height: 55px;
+        border-radius: 50px;
+        /* margin-top: 2%; */
+        margin: auto;
+        margin-right: 9px;
+
+
+    }
+    .first_re_white_space{
+        margin-left: 12px;
+    }
+    .first_re_black_space{
+        margin-right: 12px;
+
+    }
+}
+.game_back_button:hover{
+    background-color: rgba(175, 202, 208, 0.76);
+
+}
 .game_back_button{
     width: 120px;
     height:50px;
@@ -481,13 +536,14 @@ body{
     font-size: 170%;
     display: flex;
     border: solid 1px white;
-    background-color: rgba(175, 202, 208, 0.76);
-
+    cursor: pointer;
 
 }
 .game_back_button_text{
     margin: auto;
-    color: rgb(77, 77, 77);
+    /* color: rgb(77, 77, 77); */
+    color: rgb(255, 255, 255);
+
 }
 .resolt_black_num{
     color: rgb(41, 41, 41);

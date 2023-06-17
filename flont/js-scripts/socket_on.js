@@ -255,11 +255,17 @@ Socket.on("get_new_stage",(data)=>{
 
 
                 }else{
-                    pass_counter +=1
+                    let chips = count_chips()
+                    if(chips[1] != 0 && chips[0] != 0){
+                        pass_counter +=1
+                        setPiece_pass()
 
-                    alert("パスｓ")
+                        alert("パス")
+                    }else{
+                        pass_counter +=1
+                        setPiece_pass()
+                    }
 
-                    setPiece_pass()
                 }
             }else{
                 pass_counter = 0

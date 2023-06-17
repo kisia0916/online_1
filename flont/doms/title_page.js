@@ -28,11 +28,17 @@ const title_dom = ()=>{
             <span class="game_enter_button_text">Start</span>
         </div>
         <div>
-            <i class="fa-brands fa-square-twitter icon-black"></i>
-            <i class="fa-brands fa-square-facebook icon-white"></i>
+            <a href="https://twitter.com/kisia0012">
+                <i class="fa-brands fa-square-twitter icon-black"></i>
+            </a>
 
-            <i class="fa-brands fa-square-github icon-black"></i>
-            <i class="fa-brands fa-discord icon-white"></i>
+                <i class="fa-brands fa-square-facebook icon-white"></i>
+            <a href="https://github.com/kisia0916">
+                <i class="fa-brands fa-square-github icon-black"></i>
+            </a>
+            <a href="https://discord.gg/g7XYaD2U">
+                <i class="fa-brands fa-discord icon-white"></i>
+            </a>
         </div>
     </div>
 

@@ -195,6 +195,10 @@ body{
     background-color:rgb(52, 51, 51);
     display: flex;
     border-radius:50% ;
+    cursor: pointer;
+}
+.slButton1:hover{
+    background-color:rgb(67, 67, 67);
 }
 .slButton2{
     width: 83px;
@@ -204,6 +208,11 @@ body{
     display: flex;
 
     border-radius:50% ;
+    cursor: pointer;
+}
+.slButton2:hover{
+    background-color:rgb(208, 227, 212);
+
 }
 .slButton3{
     width: 83px;
@@ -211,8 +220,12 @@ body{
     background-color:rgb(221, 238, 224);
     display: flex;
 
-
+    cursor: pointer;
     border-radius:50% ;
+}
+.slButton3:hover{
+    background-color:rgb(208, 227, 212);
+
 }
 .slButton4{
     width: 83px;
@@ -223,6 +236,10 @@ body{
 
 
     border-radius:50% ;
+    cursor: pointer;
+}
+.slButton4:hover{
+    background-color:rgb(67, 67, 67);
 }
 
 .mode1Icon{

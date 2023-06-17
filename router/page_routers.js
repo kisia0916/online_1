@@ -28,7 +28,9 @@ router.get("/modeselect",(req,res)=>{
 router.get("/urljoin/:id",(req,res)=>{
     load_fun(req,res)
 })
-
+router.get("/privateroom",(req,res)=>{
+    load_fun(req,res)
+})
 
 const load_fun = (req,res)=>{
     let html = ejs.render(index_page,{

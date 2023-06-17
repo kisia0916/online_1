@@ -76,6 +76,11 @@ body{
         width: 480px;
         height: 110px;
     }
+    .host_name_text{
+
+        margin-bottom: 6px;
+        
+    }
 }
 @media (max-width:630px){
     .Host_name4{
@@ -96,6 +101,10 @@ body{
         height: 30px;
         margin-top: 20px;
 
+    }
+    .host_name_text{
+        margin-bottom: 0px;
+        
     }
 }
 
@@ -180,7 +189,7 @@ body{
     display: flex;
     margin: auto;
     margin-top: 9px;
-    margin-bottom: 6px;
+
     
 }
 .host_name_input{

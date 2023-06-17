@@ -8,7 +8,7 @@ const p2pIds = ()=>
     )
 const p2pId = p2pIds()
 const peer = new Peer(p2pId, {
-    host: "localhost",
+    host: "192.168.2.131",
     port: 9000,
     path: '/'
   });

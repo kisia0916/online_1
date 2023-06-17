@@ -49,11 +49,11 @@ const game_dom = (black,white)=>{
     <div style="display:flex">
         <div class="black">
             <div class="black_block"></div>
-            <span class="block_num">20</span>
+            <span class="block_num">0</span>
         </div>
         <div class="white">
             <div class="white_block"></div>
-            <span class="block_num2">12</span>
+            <span class="block_num2">0</span>
         </div>
     </div>
 </div>
