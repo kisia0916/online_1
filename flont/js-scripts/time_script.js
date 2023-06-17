@@ -1,1 +1,72 @@
-(function(_0x54f9d5,_0x1c3db2){const _0x28a400=_0x56a2,_0x388538=_0x54f9d5();while(!![]){try{const _0x3050f4=-parseInt(_0x28a400(0x1cf))/0x1+parseInt(_0x28a400(0x1ce))/0x2*(parseInt(_0x28a400(0x1d1))/0x3)+-parseInt(_0x28a400(0x1d7))/0x4*(parseInt(_0x28a400(0x1cd))/0x5)+-parseInt(_0x28a400(0x1d3))/0x6+-parseInt(_0x28a400(0x1d8))/0x7+-parseInt(_0x28a400(0x1d6))/0x8+parseInt(_0x28a400(0x1cc))/0x9;if(_0x3050f4===_0x1c3db2)break;else _0x388538['push'](_0x388538['shift']());}catch(_0x574431){_0x388538['push'](_0x388538['shift']());}}}(_0x1fbd,0x753d1));function _0x56a2(_0x4c2095,_0x5b431b){const _0x1fbd08=_0x1fbd();return _0x56a2=function(_0x56a29d,_0x378e25){_0x56a29d=_0x56a29d-0x1c6;let _0x4c8c5d=_0x1fbd08[_0x56a29d];return _0x4c8c5d;},_0x56a2(_0x4c2095,_0x5b431b);}let timerid=undefined;const start_timer=()=>{const _0xb4b477=_0x56a2;stop_timer(),console['log'](now_turn,turn['n']);now_turn==turn['n']+0x1&&console[_0xb4b477(0x1d0)]('fgggggggggggggggggggg');let _0x58de34=document['querySelector'](_0xb4b477(0x1c7)),_0x41cb85,_0x4ca223;timer_stop_flg=![];let _0x557ff4='';timerid=setInterval(()=>{const _0x225bf9=_0xb4b477;if(now_timer>=0x0){if(turn['n']==0x1)_0x557ff4='black';else turn['n']==0x2&&(_0x557ff4=_0x225bf9(0x1ca));_0x557ff4==my_color&&(send_p2pTimer(),now_timer-=0x1,_0x41cb85=Math[_0x225bf9(0x1d2)](now_timer/0x3c),_0x4ca223=Math['floor'](now_timer%0x3c),_0x4ca223[_0x225bf9(0x1c9)]()['length']==0x1&&(_0x4ca223='0'+_0x4ca223),!timer_stop_flg&&(_0x58de34['textContent']=_0x41cb85+':'+_0x4ca223),_0x4ca223==0x0&&_0x41cb85==0x0&&(timer_stop_flg=!![]));}},0x3e8);},stop_timer=_0x538f04=>{clearInterval(timerid);},timer_update=_0x2efc3a=>{const _0x200422=_0x56a2;let _0x1dce03=document[_0x200422(0x1cb)](_0x200422(0x1c7)),_0xb7eeeb,_0x3c64e6;_0xb7eeeb=Math[_0x200422(0x1d2)](_0x2efc3a/0x3c),_0x3c64e6=Math[_0x200422(0x1d2)](_0x2efc3a%0x3c),_0x3c64e6['toString']()[_0x200422(0x1d4)]==0x1&&(_0x3c64e6='0'+_0x3c64e6),!timer_stop_flg&&_0x2efc3a<=turn_time&&(_0x1dce03['textContent']=_0xb7eeeb+':'+_0x3c64e6,my_color==_0x200422(0x1d9)?_0x1dce03[_0x200422(0x1c8)][_0x200422(0x1da)]=_0x200422(0x1d5):_0x1dce03[_0x200422(0x1c8)][_0x200422(0x1da)]=_0x200422(0x1c6));};function _0x1fbd(){const _0x575638=['color','rgb(56,\x2056,\x2056)','.turn_timer_text','style','toString','white','querySelector','16067664cxBYnQ','136835neHxwj','2KXjYIU','15749veBgZh','log','1622892OJDjXt','floor','1114122DnYvdl','length','rgb(221,\x20238,\x20224)','4122616qceJRw','68iNlmXP','4648343hJiTGe','black'];_0x1fbd=function(){return _0x575638;};return _0x1fbd();}
+let timerid = undefined
+
+const start_timer = () => {
+		stop_timer()
+		console.log(now_turn,turn.n)
+		if(now_turn == turn.n+1){
+			console.log("fgggggggggggggggggggg")
+		}
+		let timer_text = document.querySelector(".turn_timer_text")
+
+		// let timer_warpp = document.querySelector(".turn_timer")
+		let minute;
+		let second;
+		timer_stop_flg = false
+		let now_co = ""
+		timerid = setInterval(() => {
+				if(now_timer >= 0){
+					if(turn.n == 1){
+						now_co = "black"
+					}else if(turn.n == 2){
+						now_co = "white"
+					}
+					if(now_co == my_color){
+						send_p2pTimer()
+						now_timer -=1
+						// console.log(now_timer)
+						minute = Math.floor(now_timer/60)
+						second = Math.floor(now_timer%60)
+
+						if(second.toString().length == 1){
+							second = "0"+second
+						}
+
+						if(!timer_stop_flg){
+							timer_text.textContent = minute+":"+second
+						}
+						if(second == 0 && minute == 0){
+							timer_stop_flg = true
+						}
+					}
+				}
+		}, 1000);
+	
+};
+
+
+const stop_timer = id => {
+	clearInterval(timerid)
+}
+const timer_update = (time)=>{
+	let timer_text = document.querySelector(".turn_timer_text")
+	let minute;
+	let second;
+	// alert(time)
+	minute = Math.floor(time/60)
+	second = Math.floor(time%60)
+	if(second.toString().length == 1){
+		second = "0"+second
+	}
+
+	if(!timer_stop_flg && time <= turn_time){
+		timer_text.textContent = minute+":"+second
+		if(my_color == "black"){
+			timer_text.style.color = "rgb(221, 238, 224)"
+		}else{
+			timer_text.style.color = "rgb(56, 56, 56)"
+
+		}
+	}
+}
+// start_timer('id');
+// stop('id');

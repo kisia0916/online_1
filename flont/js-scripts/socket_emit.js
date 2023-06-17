@@ -31,27 +31,44 @@ const mk_room = ()=>{
     let turn_timer2 = turn_timer2Dom.value
     let color_select = color_selectDom.value
     if(roomName){
-        let co = 0
-        if(turn_timer1 == "0"){
-            co+=1
-        }
-        if(turn_timer2 == "00"){
-            turn_timer2 = 0
-            co+=1
+        if(roomName.length<=20){
+            let co = 0
+            if(turn_timer1 == "0"){
+                co+=1
+            }
+            if(turn_timer2 == "00"){
+                turn_timer2 = 0
+                co+=1
 
-        }
-        if(co < 2){
-            let time = Number(turn_timer1)*60+Number(turn_timer2)
-            console.log(time)
+            }
+            if(co < 2){
+                let time = Number(turn_timer1)*60+Number(turn_timer2)
+                console.log(time)
 
-            console.log(roomName)
-            Socket.emit("mkroom_emit",{userId:userId,name:user_name,room_name:roomName,turn_time:time,color:color_select})
-            move("privateroom")
+                console.log(roomName)
+                roomName = roomName.replace(/[&'`"<>]/g, function(match) {
+                    return {
+                    '&': '&amp;',
+                    "'": '&#x27;',
+                    '`': '&#x60;',
+                    '"': '&quot;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    }[match]
+                });
+                Socket.emit("mkroom_emit",{userId:userId,name:user_name,room_name:roomName,turn_time:time,color:color_select})
+                move("privateroom")
+            }else{
+                turn_timer1Dom.style.backgroundColor = "rgba(251,143,143,0.79)"
+                turn_timer1Dom.style.border = "2px soild rgba(91,91,91,0.79)"
+                turn_timer2Dom.style.backgroundColor = "rgba(251,143,143,0.79)"
+                turn_timer2Dom.style.border = "2px soild rgba(91,91,91,0.79)"
+            }
         }else{
-            turn_timer1Dom.style.backgroundColor = "rgba(251,143,143,0.79)"
-            turn_timer1Dom.style.border = "2px soild rgba(91,91,91,0.79)"
-            turn_timer2Dom.style.backgroundColor = "rgba(251,143,143,0.79)"
-            turn_timer2Dom.style.border = "2px soild rgba(91,91,91,0.79)"
+            roomNameDom.value = ""
+            roomNameDom.style.backgroundColor = "rgba(251,143,143,0.79)"
+            roomNameDom.style.border = "2px soild rgba(91,91,91,0.79)"
+            roomNameDom.placeholder = "ルーム名は20文字以下で設定してください"
         }
     }else if(!roomName){
         roomNameDom.style.backgroundColor = "rgba(251,143,143,0.79)"
@@ -77,17 +94,24 @@ const mode_page = ()=>{
     user_name = input.value
 
     if(user_name){
-        user_name = user_name.replace(/[&'`"<>]/g, function(match) {
-            return {
-              '&': '&amp;',
-              "'": '&#x27;',
-              '`': '&#x60;',
-              '"': '&quot;',
-              '<': '&lt;',
-              '>': '&gt;',
-            }[match]
-          });
-        move("modeselect")
+        if(user_name.length>=3 && user_name.length<=8){
+            user_name = user_name.replace(/[&'`"<>]/g, function(match) {
+                return {
+                '&': '&amp;',
+                "'": '&#x27;',
+                '`': '&#x60;',
+                '"': '&quot;',
+                '<': '&lt;',
+                '>': '&gt;',
+                }[match]
+            });
+            move("modeselect")
+        }else{
+            input.value = ""
+            input.style.backgroundColor = "rgba(251,143,143,0.79)"
+            input.style.border = "2px soild rgba(91,91,91,0.79)"
+            input.placeholder = "ユーザー名は3文字以上8文字以下にしてください"
+        }
     }else{
         input.style.backgroundColor = "rgba(251,143,143,0.79)"
         input.style.border = "2px soild rgba(91,91,91,0.79)"
@@ -99,17 +123,24 @@ const join_room = ()=>{
     let data = data1.value
     console.log("ppppppppppppp")
     if(data){
-        data = data.replace(/[&'`"<>]/g, function(match) {
-            return {
-              '&': '&amp;',
-              "'": '&#x27;',
-              '`': '&#x60;',
-              '"': '&quot;',
-              '<': '&lt;',
-              '>': '&gt;',
-            }[match]
-          });
-        Socket.emit("join_room",{roomId:data,userId:userId,name:name})
+        if(data.length>=3 && data.length<=8){
+            data = data.replace(/[&'`"<>]/g, function(match) {
+                return {
+                '&': '&amp;',
+                "'": '&#x27;',
+                '`': '&#x60;',
+                '"': '&quot;',
+                '<': '&lt;',
+                '>': '&gt;',
+                }[match]
+            });
+            Socket.emit("join_room",{roomId:data,userId:userId,name:name})
+        }else{
+            data1.value = ""
+            data1.style.backgroundColor = "rgba(251,143,143,0.79)"
+            data1.style.border = "2px soild rgba(91,91,91,0.79)"
+            data1.placeholder = "ユーザー名は3文字以上8文字以下にしてください"
+        }
     }else{
         data1.style.backgroundColor = "rgba(251,143,143,0.79)"
         data1.style.border = "2px soild rgba(91,91,91,0.79)"
@@ -120,19 +151,26 @@ const join_room_url = (id)=>{
     let name = data1.value
 
     if(name){
-        name = name.replace(/[&'`"<>]/g, function(match) {
-            return {
-              '&': '&amp;',
-              "'": '&#x27;',
-              '`': '&#x60;',
-              '"': '&quot;',
-              '<': '&lt;',
-              '>': '&gt;',
-            }[match]
-          });
-          user_name = name
-          Socket.emit("set_info_name",{user_name:user_name,userId:userId})
-        Socket.emit("join_room",{roomId:id,userId:userId,name:name})
+        if(name.length>=3 && name.length<=8){
+            name = name.replace(/[&'`"<>]/g, function(match) {
+                return {
+                '&': '&amp;',
+                "'": '&#x27;',
+                '`': '&#x60;',
+                '"': '&quot;',
+                '<': '&lt;',
+                '>': '&gt;',
+                }[match]
+            });
+            user_name = name
+            Socket.emit("set_info_name",{user_name:user_name,userId:userId})
+            Socket.emit("join_room",{roomId:id,userId:userId,name:name})
+        }else{
+            data1.value = ""
+            data1.style.backgroundColor = "rgba(251,143,143,0.79)"
+            data1.style.border = "2px soild rgba(91,91,91,0.79)"
+            data1.placeholder = "ユーザー名は3文字以上8文字以下にしてください"
+        }
     }else{
         data1.style.backgroundColor = "rgba(251,143,143,0.79)"
         data1.style.border = "2px soild rgba(91,91,91,0.79)"
