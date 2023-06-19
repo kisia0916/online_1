@@ -7,11 +7,7 @@ const p2pIds = ()=>
     ).toString(16)
     )
 const p2pId = p2pIds()
-const peer = new Peer(p2pId, {
-    host: "192.168.2.131",
-    port: 9000,
-    path: '/'
-  });
+const peer = new Peer(p2pId);
 const connection_p2p = (id)=>{
     console.log("connection")
     if(peer){
