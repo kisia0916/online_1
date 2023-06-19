@@ -139,7 +139,7 @@ Socket.on("end_game",(data)=>{
     init_data()
     user_state = 0
     console.log("oooooooooooooooooooooooo")
-    move("")
+    back_mode()
     discon_p2p()
 }) 
 Socket.on("get_new_stage",(data)=>{

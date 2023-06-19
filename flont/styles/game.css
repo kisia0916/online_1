@@ -537,6 +537,9 @@ body{
     display: flex;
     border: solid 1px white;
     cursor: pointer;
+    background-color: rgba(175, 202, 208, 0.533);
+
+
 
 }
 .game_back_button_text{
