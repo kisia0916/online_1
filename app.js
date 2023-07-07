@@ -236,8 +236,9 @@ io.on("connection",(socket)=>{
             console.log(next_user)
             io.to(next_user).emit("mess",next_user)
             console.log(room)
-        }catch{
-            console.log("error")
+        }catch(error){
+            console.log(games)
+            console.log(error)
         }
     })
     socket.on("end_game",(data)=>{
@@ -254,7 +255,7 @@ io.on("connection",(socket)=>{
     })
     socket.on("delete_cons",(data)=>{
         let room_index = games.indexOf(data.room)
-        games.splice(room_index,1)
+        games.splice(room_index+1,1)
         console.log("oooo")
         console.log(games)
     })
