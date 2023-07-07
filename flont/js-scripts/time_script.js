@@ -66,7 +66,7 @@ const start_timer = () => {
 const stop_timer = id => {
 	clearInterval(timerid)
 }
-const timer_update = (time)=>{
+const timer_update = (time,color)=>{
 	let timer_text = document.querySelector(".turn_timer_text")
 	let minute;
 	let second;
@@ -79,10 +79,11 @@ const timer_update = (time)=>{
 
 	if(!timer_stop_flg && time <= turn_time){
 		timer_text.textContent = minute+":"+second
-		if(time.color == "black"){
+
+		if(color == "black"){
 			timer_text.style.color = "rgb(56, 56, 56)"
 
-		}else if(time.color == "white"){
+		}else if(color == "white"){
 			timer_text.style.color = "rgb(221, 238, 224)"
 		}
 	}

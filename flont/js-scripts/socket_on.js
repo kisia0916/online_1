@@ -258,7 +258,7 @@ Socket.on("get_new_stage",(data)=>{
                 }else{
                     let chips = count_chips()
                     if(chips[1] != 0 && chips[0] != 0){
-                        pass_counter +=1
+                        pass_counter -=1
                         setPiece_pass()
 
                         alert("パス")
