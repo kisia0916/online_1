@@ -241,14 +241,15 @@ io.on("connection",(socket)=>{
         }
     })
     socket.on("end_game",(data)=>{
-        joinRoomList[0].room = ""
-        console.log("!o")
-        socket.leave(data.room)
+        if(joinRoomList[0].room == data.room){
+            joinRoomList[0].room = ""
+            console.log("!o")
+            socket.leave(data.room)
 
-        io.to(joinRoomList[0].room).emit("discon_p2p",{})
+            io.to(joinRoomList[0].room).emit("discon_p2p",{})
 
-        io.to(data.room).emit("end_room","end")
-
+            io.to(data.room).emit("end_room","end")
+        }
         // console.log(joinRoomList)
     })
     socket.on("delete_cons",(data)=>{

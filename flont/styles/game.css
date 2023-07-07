@@ -122,9 +122,8 @@ body{
         height: 50px;
         border-radius: 30px;
         border: solid 1px white;
-
         margin: auto;
-
+        display: flex;
 
 
         /* background-color: rgba(255, 255, 255, 0.1);
@@ -139,11 +138,15 @@ body{
     }
     .turn_timer_text{
         font-size: 180%;
-        margin-left: 31px;
-        margin-top: 10px;
+        /* margin-left: 31px; */
+        /* margin-top: 29%; */
+        margin: auto; 
         color: rgb(56, 56, 56);
+        color:rgb(221, 238, 224);
 
-
+    }
+    .main_warpp9{
+        top: 54%;
     }
 }
 @media (max-width:630px){

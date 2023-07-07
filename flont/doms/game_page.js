@@ -1,5 +1,5 @@
-const game_dom = (black,white)=>{
-    let html = `
+const game_dom = (black, white) => {
+  let html = `
     <div class="move_mist move_mist2" id = "move_mist" style="z-index:1100">
         
     </div>
@@ -68,19 +68,19 @@ const game_dom = (black,white)=>{
 
 
 
-    `
-    return html
-}
-const game_dom_con_text = (other_name)=>{
-    let html = `
+    `;
+  return html;
+};
+const game_dom_con_text = (other_name) => {
+  let html = `
     <div class="first_con_joinText">
     <span class="first_con_join">waiting ${other_name}....</span>
 </div>
-    `
-    return html
-}
-const game_dom_win_text = (black,white)=>{
-    let html = `
+    `;
+  return html;
+};
+const game_dom_win_text = (black, white) => {
+  let html = `
     <div class="first_screen_main2">
     <div class="resolt_data">
         <span class="resolt_data_text win">You Win</span>
@@ -103,11 +103,11 @@ const game_dom_win_text = (black,white)=>{
         <span class="game_back_button_text" >Home</span>
     </div>
 </div>
-    `
-    return html
-}
-const game_dom_lose_text = (black,white)=>{
-    let html = `
+    `;
+  return html;
+};
+const game_dom_lose_text = (black, white) => {
+  let html = `
     <div class="first_screen_main2">
     <div class="resolt_data">
         <span class="resolt_data_text lose">You lose</span>
@@ -130,6 +130,6 @@ const game_dom_lose_text = (black,white)=>{
         <span class="game_back_button_text" >Home</span>
     </div>
 </div>
-    `
-    return html
-}
+    `;
+  return html;
+};
