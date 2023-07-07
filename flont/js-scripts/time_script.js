@@ -33,6 +33,11 @@ const start_timer = () => {
 						}
 
 						if(!timer_stop_flg){
+							if(my_color == "black"){
+								timer_text.style.color = "rgb(56, 56, 56)"
+							}else if(my_color == "white"){
+								timer_text.style.color = "rgb(221, 238, 224)"
+							}
 							timer_text.textContent = minute+":"+second
 						}
 						if(second == 0 && minute == 0){
@@ -74,11 +79,11 @@ const timer_update = (time)=>{
 
 	if(!timer_stop_flg && time <= turn_time){
 		timer_text.textContent = minute+":"+second
-		if(my_color == "black"){
-			timer_text.style.color = "rgb(221, 238, 224)"
-		}else{
+		if(time.color == "black"){
 			timer_text.style.color = "rgb(56, 56, 56)"
 
+		}else if(time.color == "white"){
+			timer_text.style.color = "rgb(221, 238, 224)"
 		}
 	}
 	if(time == 0){

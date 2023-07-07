@@ -28,6 +28,10 @@ const game_start  = ()=>{
     
     let black_name_dom = document.querySelector(".black_user_name")
     let white_name_dom = document.querySelector(".white_user_name")
+    let blco = document.querySelector(".block_num")
+    let whco = document.querySelector(".block_num2")
+    blco.textContent = 2
+    whco.textContent = 2
     black_name_dom.textContent = black_name
     white_name_dom.textContent = white_name
     stage_width = 8

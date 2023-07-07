@@ -33,13 +33,13 @@ peer.on('connection', conn => {
     console.log("setuzoku")
 	conn.on('data', data => {
 		if(data.type == "timer"){
-            timer_update(data.data)
+            timer_update(data.data,data.color)
         }
 	});
 });
 
 const send_p2pTimer = ()=>{
     if(conn){
-        conn.send({type:"timer",data:now_timer})
+        conn.send({type:"timer",data:now_timer,color:my_color})
     }
 }
