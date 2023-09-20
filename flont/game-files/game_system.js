@@ -24,6 +24,7 @@ const checkPutSpace = ()=>{
                 if(stage.map[i][s] != 0 && turn.n != stage.map[i][s] && stage.map[i][s] != 3 && (stage.map[i+1][s] == 0 || stage.map[i-1][s] == 0 || stage.map[i+1][s+1] == 0 || stage.map[i+1][s-1] == 0 || stage.map[i][s+1] == 0 || stage.map[i][s-1] == 0  || stage.map[i-1][s-1] == 0 || stage.map[i-1][s+1] == 0)){
     
                         if(stage.map[i][s+1] != 0 && stage.map[i][s-1] == 0){
+                            console.log("1")
                             for(let g = s;stage_width>g;g++){
                                 if (stage.map[i][g] == 0|| stage.map[i][g] == 3){
                                     break
@@ -40,6 +41,9 @@ const checkPutSpace = ()=>{
     
     
                         if(stage.map[i][s-1] != 0&& stage.map[i][s+1] == 0){
+                            console.log(i,s)
+                            console.log("jklr;jg0439jg43jg-09rjg09r3gj045gjfkla;jgor;igj3o")
+
                             for(let g = s;0<=g;g--){
                                 if (stage.map[i][g] == 0|| stage.map[i][g] == 3){
                                     break
@@ -55,6 +59,8 @@ const checkPutSpace = ()=>{
                         }
     
                         if(stage.map[i-1][s] != 0&& stage.map[i+1][s] == 0){
+                            console.log("1")
+
                             for(let g = i;0<=g;g--){
                                 if (stage.map[g][s] == 0|| stage.map[g][s] == 3){
                                     break
@@ -71,6 +77,8 @@ const checkPutSpace = ()=>{
           
     
                         if(stage.map[i+1][s] != 0&& stage.map[i-1][s] == 0){
+                            console.log("1")
+
                             for(let g = i;stage_height>g;g++){
                                 if (stage.map[g][s] == 0|| stage.map[g][s] == 3){
                                     break
@@ -88,6 +96,8 @@ const checkPutSpace = ()=>{
                     //斜め
     
                         if(stage.map[i+1][s+1] != 0 && stage.map[i-1][s-1] == 0){
+                            console.log("1")
+
                             console.log("ff")
                             let s2 = s
                             for(let g = i;stage_height>g;g++){
@@ -188,7 +198,9 @@ const checkPutSpace = ()=>{
     
                 }
             }catch{
-                if(i == stage_height-1){
+                console.log("0000000000000000000000000000000000000")
+                if(i == stage_height-1 || i == 0){
+                    console.log("11122222222222222222222222222222222222222222222222")
                     if(s != 0 && s != stage_width-1){
                         try{
                         if(stage.map[i][s+1] != 0 && stage.map[i][s-1] == 0){
@@ -208,6 +220,8 @@ const checkPutSpace = ()=>{
 
 
                         if(stage.map[i][s-1] != 0&& stage.map[i][s+1] == 0){
+                            console.log("kikisisisisisisis")
+
                             for(let g = s;0<=g;g--){
                                 if (stage.map[i][g] == 0|| stage.map[i][g] == 3){
                                     break
@@ -223,6 +237,7 @@ const checkPutSpace = ()=>{
                         }
 
                         if(stage.map[i-1][s] != 0){
+                            console.log("kikisisisisisisis")
                             for(let g = i;0<=g;g--){
                                 if (stage.map[g][s] == 0|| stage.map[g][s] == 3){
                                     break
@@ -287,9 +302,7 @@ const checkPutSpace = ()=>{
                         }catch{
                             
                         }
-                        }else if(s == 0){
-
-                        }
+                    }
                 }
             }
             }
@@ -302,17 +315,19 @@ const check_reverse = (x,y)=>{
 }
 
 const setPiece = ()=>{
-    if(stage.map[my.p][mx.p] == 3){
-        check_reverse(mx.p,my.p)
-        turn_change()
-        for(let i = 0;stage_height>i;i++){
-            for(let s = 0;stage_width>s;s++){
-                if(stage.map[i][s] == 3){
-                    stage.map[i][s] = 0
+    if(location.pathname.split("/")[1] == "game"){
+        if(stage.map[my.p][mx.p] == 3){
+            check_reverse(mx.p,my.p)
+            turn_change()
+            for(let i = 0;stage_height>i;i++){
+                for(let s = 0;stage_width>s;s++){
+                    if(stage.map[i][s] == 3){
+                        stage.map[i][s] = 0
+                    }
                 }
             }
+            // checkPutSpace()
         }
-        // checkPutSpace()
     }
 }
 const setPiece_pass = ()=>{
