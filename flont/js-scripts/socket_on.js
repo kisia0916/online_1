@@ -246,6 +246,10 @@ Socket.on("get_new_stage",(data)=>{
                             mess = "あなたの負けです"
                             lose_write_12(end_stage[0],end_stage[1])
                         }
+                    }else{
+                        mess = "引き分けです"
+                        console.log("引き分け")
+                        draw_write_12(end_stage[0],end_stage[1])
                     }
                     console.log(stage.map)
 
@@ -304,6 +308,10 @@ Socket.on("get_new_stage",(data)=>{
                     mess = "あなたの負けです"
                     lose_write_12(end_stage[0],end_stage[1])
                 }
+            }else{
+                mess = "引き分けです"
+                console.log("引き分け")
+                draw_write_12(end_stage[0],end_stage[1])
             }
         // console.log(stage.map)
 
@@ -365,6 +373,10 @@ Socket.on("end_room",(data)=>{
                 mess = "あなたの負けです"
                 lose_write_12(end_stage[0],end_stage[1])
             }
+        }else{
+            mess = "引き分けです"
+            console.log("引き分け")
+            draw_write_12(end_stage[0],end_stage[1])
         }
     //     console.log(stage.map)
 

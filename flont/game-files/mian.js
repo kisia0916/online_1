@@ -111,7 +111,43 @@ const lose_write_12 = (black,white)=>{
     warpp.classList.add("win_ani")
     warpp.style.removeProperty("visibility")
 }
+const game_dom_draw_text = (black, white) => {
+    let html = `
+      <div class="first_screen_main2">
+      <div class="resolt_data">
+          <span class="resolt_data_text lose">Draw</span>
+      </div>
+      <div class="first_box_warpp">
+          <div class="first_box">
+              <div class="first_box_center">
+                  <div class="first_re_black_space">
+                      <div class="resolt_black_chip"></div>
+                      <span class="resolt_black_num">${black}</span>
+                  </div>
+                  <div class="first_re_white_space">
+                      <div class="resolt_white_chip"></div>
+                      <span class="resolt_white_num">${white}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="game_back_button" onclick="back_mode()">
+          <span class="game_back_button_text" >Home</span>
+      </div>
+  </div>
+      `;
+    return html;
+  };
+const draw_write_12 = (black,white)=>{
+    sleep(1.5)
 
+    let warpp = document.querySelector(".first_name_warpp")
+    warpp.style.visibility = "visible"
+    warpp.classList.remove("first_fade_out")
+    warpp.innerHTML = game_dom_draw_text(black,white)
+    warpp.classList.add("win_ani")
+    warpp.style.removeProperty("visibility")
+}
 const main_loop = ()=>{
     // console.log("kk")
     ctx.clearRect(0,0,600,600)
